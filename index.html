@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!-- data-root is "" on pages in the main folder, and "../" on pages inside
+     projects/. It tells main.js how to build links. Do not remove it. -->
+<html lang="en" data-root="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bentley Harris — Engineering Student</title>
+  <meta name="description" content="Engineering student in Australia. Fabrication, electronics and embedded systems projects, documented in detail.">
+
+  <!-- Open Graph: controls how the link looks when shared on LinkedIn.
+       >>> FILL IN: replace https://YOUR-USERNAME.github.io in the two URLs
+       below with your real site address once you have deployed. The README
+       explains where to find it. These must be full addresses starting with
+       https:// — relative paths do not work for link previews. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bentley Harris — Engineering Student">
+  <meta property="og:description" content="Fabrication, electronics and embedded systems projects, documented in detail.">
+  <meta property="og:url" content="https://YOUR-USERNAME.github.io/">
+  <!-- >>> FILL IN: add a 1200x630 image at assets/img/og-image.jpg -->
+  <meta property="og:image" content="https://YOUR-USERNAME.github.io/assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Applies your saved light/dark choice before the page draws, so there is
+       no white flash. Leave this here. -->
+  <script>
+    try {
+      var t = localStorage.getItem("theme");
+      if (t) document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================================================
+     HEADER — this block is identical on every page.
+     If you change it here, change it on every other page too.
+     ============================================================ -->
+<header class="site-header">
+  <div class="wrap wrap--wide header-inner">
+    <a class="brand" href="index.html">Bentley Harris</a>
+
+    <div class="nav-group">
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="icon-link" href="https://www.linkedin.com/in/bentley-harris-082259299/" aria-label="LinkedIn profile">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.02h4.56V24H.22zM8.34 8.02h4.37v2.18h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.47 3.04 5.47 6.99V24h-4.56v-7.28c0-1.74-.03-3.98-2.42-3.98-2.42 0-2.79 1.89-2.79 3.85V24H8.34z"/></svg>
+      </a>
+
+      <!-- Dark mode toggle. Delete this button if you do not want it. -->
+      <button class="theme-toggle" type="button" data-theme-toggle>Dark</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap wrap--wide">
+
+    <!-- ============================================================
+         INTRODUCTION
+         ============================================================ -->
+    <section class="section measure">
+      <h1>Bentley Harris</h1>
+      <!-- >>> FILL IN (optional): adjust this one-line descriptor. -->
+      <p class="lead">Engineering student — fabrication, electronics and embedded systems.</p>
+
+      <figure>
+        <img class="portrait" src="assets/img/portrait.jpg" alt="Bentley Harris in a welding apron and goggles, cutting steel plate with an oxy-acetylene torch in a school workshop, sparks falling below." width="480" height="600">
+      </figure>
+      <p>I am a first-year electrical engineering student at the University of Queensland, studying a combined Bachelor of Engineering and Master of Engineering. Before university I completed a two-year Certificate II in Engineering during high school. That course is where I learned to weld, run a lathe, work sheet metal and heat treat steel, and it produced most of the fabrication work on this site.</p>
+
+      <p>Outside coursework I design and build electronics. I started with the basics — driving fans and motors, controlling LEDs, reading sensors — and moved on to complete builds: Arduino control systems, PID stabilisation, hand-soldered perfboard circuits laid out in KiCad, and enclosures I model in CAD and print myself. My largest project so far is a self-stabilising floating house, which took over fifty hours of design work and taught me most of what I know about tuning a control loop.</p>
+
+      <p>I document everything I build. That is what this site is for.</p>
+
+      <ul class="link-row">
+        <li><a href="https://www.linkedin.com/in/bentley-harris-082259299/">LinkedIn</a></li>
+        <!-- The address is assembled by main.js so scrapers cannot read it in
+             the page source. >>> FILL IN: split your address across these two
+             attributes — for example jane.smith and gmail.com -->
+        <li><a href="contact.html" data-email-user="bentleyharris" data-email-domain="protonmail.com" data-keep-text>Email</a></li>
+        <li><a href="assets/files/resume.pdf">Resume (PDF)</a></li>
+      </ul>
+    </section>
+
+    <!-- ============================================================
+         SELECTED PROJECTS
+         These cards are built automatically from assets/js/projects.js.
+         To change which four appear here, set featured: true on the ones
+         you want in that file. Do not edit the cards by hand.
+         ============================================================ -->
+    <section class="section">
+      <h2>Selected projects</h2>
+      <ul class="project-grid project-grid--featured" data-projects="featured" data-heading="3"></ul>
+
+      <noscript>
+        <p class="noscript-note">Project cards need JavaScript to display.
+          <a href="projects.html">See the full project list</a>.</p>
+      </noscript>
+
+      <p class="section-link"><a href="projects.html">All projects</a></p>
+    </section>
+
+    <!-- ============================================================
+         SKILLS SUMMARY
+         A short version. The full list lives on the resume page.
+         Keep the two in step when you edit either one.
+         ============================================================ -->
+    <section class="section measure">
+      <h2>Skills</h2>
+
+      <div class="skill-group">
+        <h3>Manufacturing &amp; fabrication</h3>
+        <p>MIG, stick and spot welding. Oxy-acetylene torch operation. Metal and wood lathe, drill press, band saw, angle grinder, belt sander. Heat treating. Sheet metal work in mild steel and aluminium.</p>
+      </div>
+
+      <div class="skill-group">
+        <h3>Electronics &amp; embedded</h3>
+        <p>Arduino in C/C++, PID control, IMU sensors, motor controllers, MOSFET switching, buck converters, RTC modules, OLED displays, RF modules, battery and supercapacitor systems, soldering, perfboard construction, circuit fault diagnosis.</p>
+      </div>
+
+      <div class="skill-group">
+        <h3>Design &amp; software</h3>
+        <p>CAD modelling for 3D printing, 3D printer operation, KiCad schematic and PCB design, data logging and telemetry, spreadsheet data analysis.</p>
+      </div>
+
+      <div class="skill-group">
+        <h3>Measurement &amp; drawing</h3>
+        <p>Precision measurement with calipers and scribes, engineering drawings and technical drafting, hand-drawn schematic documentation.</p>
+      </div>
+
+      <p class="section-link"><a href="resume.html">Full resume, education and awards</a></p>
+    </section>
+
+  </div>
+</main>
+
+<!-- ============================================================
+     FOOTER — identical on every page.
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="wrap wrap--wide footer-inner">
+    <p>&copy; <span data-current-year>2026</span> Bentley Harris</p>
+    <ul class="link-row">
+      <li><a href="https://www.linkedin.com/in/bentley-harris-082259299/">LinkedIn</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- projects.js must load before main.js. Both are plain scripts, not
+     modules, so the site still works when you open the file directly from
+     your computer without a web server. -->
+<script src="assets/js/projects.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Handheld Message Console — Bentley Harris</title>
+  <meta name="description" content="A 3D printed handheld device with an OLED menu system, 365 stored messages, a favourites list and battery monitoring.">
+
+  <!-- >>> FILL IN: replace https://YOUR-USERNAME.github.io with your real
+       site address once you have deployed. -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Handheld Message Console — Bentley Harris">
+  <meta property="og:description" content="A 3D printed handheld device with an OLED menu system, 365 stored messages, a favourites list and battery monitoring.">
+  <meta property="og:url" content="https://YOUR-USERNAME.github.io/projects/handheld-message-console.html">
+  <meta property="og:image" content="https://YOUR-USERNAME.github.io/assets/img/handheld-message-console/thumb.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!-- Applies your saved light/dark choice before the page draws. Leave this here. -->
+  <script>
+    try {
+      var t = localStorage.getItem("theme");
+      if (t) document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  </script>
+</head>
+
+<!-- data-project-id must match the "id" in assets/js/projects.js. It is what
+     makes the previous/next links at the bottom of this page work. -->
+<body data-project-id="handheld-message-console">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================================================
+     HEADER — identical on every page. Links start with ../ because
+     this page sits inside the projects/ folder.
+     ============================================================ -->
+<header class="site-header">
+  <div class="wrap wrap--wide header-inner">
+    <a class="brand" href="../index.html">Bentley Harris</a>
+
+    <div class="nav-group">
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="../resume.html">Resume</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a class="icon-link" href="https://www.linkedin.com/in/bentley-harris-082259299/" aria-label="LinkedIn profile">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.02h4.56V24H.22zM8.34 8.02h4.37v2.18h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.47 3.04 5.47 6.99V24h-4.56v-7.28c0-1.74-.03-3.98-2.42-3.98-2.42 0-2.79 1.89-2.79 3.85V24H8.34z"/></svg>
+      </a>
+
+      <button class="theme-toggle" type="button" data-theme-toggle>Dark</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap wrap--wide">
+
+    <div class="measure">
+      <header class="project-header">
+        <h1>Handheld Message Console</h1>
+        <div class="project-meta">
+          <span class="meta">2026 · Electronics &amp; Embedded</span>
+          <ul class="tag-list">
+            <li class="tag">Arduino</li>
+            <li class="tag">OLED</li>
+            <li class="tag">3D printing</li>
+            <li class="tag">Soldering</li>
+          </ul>
+        </div>
+      </header>
+
+      <p class="lead">A handheld device I designed and built as a gift, roughly the shape and feel of a Game Boy. It holds 365 messages, one for each day of the year, which you scroll through with physical buttons. Any message can be marked as a favourite and revisited later from its own list.</p>
+      <!-- >>> FILL IN: replace this bracketed paragraph with your own. -->
+      <p>[One sentence on who it was for and the occasion.]</p>
+
+      <h2>Key details</h2>
+      <ul class="spec-list">
+        <li>Designed the enclosure in CAD and 3D printed it, sized around the display, board and battery.</li>
+        <li>OLED display, physical buttons for navigation, and a buzzer giving audio feedback on presses and menu changes.</li>
+        <li>Wrote a full menu system: scroll through 365 unique messages, mark any of them as a favourite, and open a separate favourites list to read them again.</li>
+        <li>Added a settings menu for sound and screen brightness.</li>
+        <li>Battery monitoring with a live voltage readout, so the device shows how much charge is left rather than simply dying.</li>
+        <li>Built the circuit on a fully soldered board and finished it to a standard I was happy to hand over as a gift.</li>
+        <!-- >>> FILL IN -->
+        <li>[How you stored 365 messages and anything you had to do to fit them in memory. That detail is more interesting to an engineer reading this than it might seem.]</li>
+      </ul>
+    </div>
+
+    <!-- ============================================================
+         PHOTOS
+         ============================================================ -->
+    <div class="gallery">
+
+      <figure>
+        <button class="shot-btn" type="button">
+          <img src="../assets/img/handheld-message-console/01.jpg"
+               alt="The finished handheld console in its 3D printed enclosure, showing the main menu on the OLED display."
+               width="1205" height="1600">
+        </button>
+        <figcaption>The finished device, running the main menu.</figcaption>
+      </figure>
+
+      <figure>
+        <button class="shot-btn" type="button">
+          <img src="../assets/img/handheld-message-console/02.jpg"
+               alt="The soldered circuit board being test fitted into the 3D printed enclosure on standoffs."
+               width="1205" height="1600" loading="lazy">
+        </button>
+        <figcaption>Test fitting the board into the printed enclosure on standoffs.</figcaption>
+      </figure>
+
+      <figure>
+        <button class="shot-btn" type="button">
+          <img src="../assets/img/handheld-message-console/03.jpg"
+               alt="Soldering the underside of the perfboard, held in a pair of helping hands."
+               width="1205" height="1600" loading="lazy">
+        </button>
+        <figcaption>Soldering the underside. Soldered rather than left on a breadboard, because it had to survive being handled.</figcaption>
+      </figure>
+
+      <figure>
+        <button class="shot-btn" type="button">
+          <img src="../assets/img/handheld-message-console/04.jpg"
+               alt="Close-up of the soldered traces on the underside of the perfboard."
+               width="1600" height="1205" loading="lazy">
+        </button>
+        <figcaption>The solder side up close. Point-to-point runs on perfboard in place of a custom PCB.</figcaption>
+      </figure>
+
+      <figure>
+        <button class="shot-btn" type="button">
+          <img src="../assets/img/handheld-message-console/05.jpg"
+               alt="The open rear of the enclosure with the 7.2 V NiMH battery pack being fitted into its compartment."
+               width="1205" height="1600" loading="lazy">
+        </button>
+        <figcaption>The rear compartment, sized around a 7.2&nbsp;V NiMH pack with an XT30 connector so the battery can be swapped.</figcaption>
+      </figure>
+
+      <figure>
+        <button class="shot-btn" type="button">
+          <img src="../assets/img/handheld-message-console/06.jpg"
+               alt="The favourites list on the OLED screen, showing a saved message with the battery voltage in the corner."
+               width="1205" height="1600" loading="lazy">
+        </button>
+        <figcaption>The favourites list, with the live battery voltage readout in the corner.</figcaption>
+      </figure>
+
+      <figure>
+        <button class="shot-btn" type="button">
+          <img src="../assets/img/handheld-message-console/07.jpg"
+               alt="Exploded isometric CAD view of the three printed enclosure parts: the front shell with two rectangular openings and curved thumb recesses along its edges, the middle body with internal ribs and a side port cutout, and the back plate with four corner standoffs and an engraved dedication."
+               width="1172" height="708" loading="lazy">
+        </button>
+        <figcaption>The enclosure in three printed parts: front shell, body, and engraved back plate.</figcaption>
+      </figure>
+
+      <figure>
+        <button class="shot-btn" type="button">
+          <img src="../assets/img/handheld-message-console/08.jpg"
+               alt="Three face-on CAD views of the enclosure parts side by side: the front shell, the middle body and the back plate, each with a screw boss at all four corners, and the back plate carrying an engraved dedication."
+               width="1168" height="498" loading="lazy">
+        </button>
+        <figcaption>Face-on views of the three parts, showing the screw pattern and the display openings.</figcaption>
+      </figure>
+
+      <figure>
+        <button class="shot-btn" type="button">
+          <img src="../assets/img/handheld-message-console/09.jpg"
+               alt="Three side elevation CAD views in a row giving the profile of each enclosure part: the curved thumb recess in the front shell, the flat-sided middle body, and the thin back plate with its two visible standoffs."
+               width="1162" height="386" loading="lazy">
+        </button>
+        <figcaption>Side elevations: the thumb recess in the front shell, the body, and the standoffs on the back plate.</figcaption>
+      </figure>
+
+    </div>
+
+    <div class="measure">
+
+      <!-- ============================================================
+           VIDEO
+           YouTube is only loaded once someone clicks play. The ID below
+           is live. Needs a still at 1280x720 saved as video-thumb.jpg in
+           this project's image folder.
+           ============================================================ -->
+      <h2>Video</h2>
+      <div class="video" data-youtube-id="QsPowW7vD5k" data-video-title="Handheld message console demonstration">
+        <button class="video-play" type="button" aria-label="Play video: Handheld message console demonstration">
+          <img src="../assets/img/handheld-message-console/video-thumb.jpg" alt="" width="1280" height="720" loading="lazy">
+          <span class="video-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </button>
+      </div>
+
+      <h2>What I learned</h2>
+      <p>Most of the work was in the firmware, not the hardware. Getting a menu to feel right with only a few buttons took far longer than wiring the parts together: every mode needs an obvious way back out, and the device has to survive someone pressing buttons in an order I never anticipated without ending up stuck in a state it cannot leave.</p>
+      <p>The other lesson was physical. Designing an enclosure around components is very different from designing one in isolation, and the tolerances that matter are the ones you only find after the first print.</p>
+      <!-- >>> FILL IN: replace this bracketed paragraph with your own. -->
+      <p>[What you would change about the enclosure, the button feel or the layout if you printed another one.]</p>
+
+    </div>
+
+    <!-- Previous / next links are built from the order of projects.js.
+         Nothing to fill in here. -->
+    <nav class="pager" data-pager aria-label="More projects"></nav>
+
+  </div>
+</main>
+
+<!-- ============================================================
+     FOOTER — identical on every page.
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="wrap wrap--wide footer-inner">
+    <p>&copy; <span data-current-year>2026</span> Bentley Harris</p>
+    <ul class="link-row">
+      <li><a href="https://www.linkedin.com/in/bentley-harris-082259299/">LinkedIn</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="../assets/js/projects.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</body>
+</html>

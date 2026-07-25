@@ -1,0 +1,812 @@
+/* ==========================================================================
+   PORTFOLIO — SHARED STYLESHEET
+   This is the only stylesheet on the site. Every page loads it.
+   Do not add <style> blocks to individual pages; change things here instead.
+
+   CONTENTS
+     1.  Design tokens        <- change colours, fonts and widths HERE
+     2.  Reset and base
+     3.  Layout containers
+     4.  Header and navigation
+     5.  Typography and prose
+     6.  Meta text, tags, buttons
+     7.  Project cards and grid
+     8.  Category filters
+     9.  Project pages: gallery, video, prev/next
+     10. Lightbox
+     11. Resume and lists
+     12. Footer
+     13. Print styles
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. DESIGN TOKENS
+   Almost every visual change you want to make can be made in this block alone.
+   ========================================================================== */
+
+:root {
+  /* --- Colour (light mode) --- */
+  --bg:            #fcfcfc;   /* page background, near-white */
+  --surface:       #f3f3f1;   /* subtle fill for tags and buttons */
+  --text:          #1a1a1a;   /* body text, deliberately not pure black */
+  --muted:         #5c5c5c;   /* years, captions, secondary detail */
+  --hairline:      #e4e4e2;   /* all borders and dividers */
+  --accent:        #1d4e73;   /* ONE accent colour: links and highlights only */
+  --accent-strong: #143a57;   /* accent on hover */
+
+  /* --- Type --- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+               "Liberation Mono", monospace;
+
+  --size-body:   17px;
+  --size-small:  14px;
+  --size-meta:   13px;   /* monospace metadata */
+  --lh-body:     1.65;
+
+  /* --- Layout --- */
+  --width-text:  760px;  /* reading column */
+  --width-wide: 1040px;  /* project grid and galleries */
+  --gutter:       24px;  /* space between content and screen edge */
+
+  /* --- Vertical rhythm (8px scale) --- */
+  --s1:  8px;
+  --s2: 16px;
+  --s3: 24px;
+  --s4: 32px;
+  --s5: 48px;
+  --s6: 72px;
+}
+
+/* --- Dark mode ---------------------------------------------------------
+   Applied automatically if the visitor's device is set to dark, and
+   overridden by the toggle in the header (saved in localStorage).
+   Delete these two blocks and the toggle button to remove dark mode. */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:            #16181a;
+    --surface:       #202325;
+    --text:          #e8e8e6;
+    --muted:         #a2a2a0;
+    --hairline:      #2e3134;
+    --accent:        #7fb2dc;
+    --accent-strong: #a3c9e8;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg:            #16181a;
+  --surface:       #202325;
+  --text:          #e8e8e6;
+  --muted:         #a2a2a0;
+  --hairline:      #2e3134;
+  --accent:        #7fb2dc;
+  --accent-strong: #a3c9e8;
+}
+
+
+/* ==========================================================================
+   2. RESET AND BASE
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--size-body);
+  line-height: var(--lh-body);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Visible keyboard focus everywhere. Do not remove. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Respect the visitor's motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Skip link: hidden until tabbed to, for keyboard and screen reader users. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--bg);
+  color: var(--text);
+  padding: var(--s2);
+  border: 1px solid var(--hairline);
+  z-index: 100;
+}
+.skip-link:focus {
+  left: var(--s2);
+  top: var(--s2);
+}
+
+
+/* ==========================================================================
+   3. LAYOUT CONTAINERS
+   ========================================================================== */
+
+.wrap {
+  max-width: var(--width-text);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.wrap--wide { max-width: var(--width-wide); }
+
+main { padding: var(--s6) 0 var(--s6); }
+
+/* Space between major blocks of a page. */
+.section { margin-top: var(--s6); }
+.section:first-child { margin-top: 0; }
+
+/* A hairline divider used sparingly between sections. */
+.rule {
+  border: 0;
+  border-top: 1px solid var(--hairline);
+  margin: var(--s6) 0;
+}
+
+/* Keeps a block of text at reading width even inside a wide container. */
+.measure { max-width: var(--width-text); }
+
+/* A single link sitting below a block, e.g. "All projects". */
+.section-link {
+  margin-top: var(--s4);
+  margin-bottom: 0;
+}
+
+
+/* ==========================================================================
+   4. HEADER AND NAVIGATION
+   ========================================================================== */
+
+.site-header {
+  border-bottom: 1px solid var(--hairline);
+  padding: var(--s3) 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-weight: 600;
+  font-size: var(--size-body);
+  text-decoration: none;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+.brand:hover { text-decoration: underline; }
+
+.nav-group {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  flex-wrap: wrap;
+}
+
+.nav-list {
+  display: flex;
+  gap: var(--s3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.nav-list a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: var(--size-small);
+}
+.nav-list a:hover { text-decoration: underline; }
+
+/* The page you are currently on. */
+.nav-list a[aria-current="page"] {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Small icon links (LinkedIn, GitHub) in the header. */
+.icon-link {
+  display: inline-flex;
+  color: var(--muted);
+  line-height: 0;
+}
+.icon-link:hover { color: var(--accent); }
+.icon-link svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* Dark mode toggle. Delete this rule if you remove the toggle. */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--hairline);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 9px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* On narrow screens the header stacks instead of using a hamburger menu:
+   fewer moving parts, nothing to break, keyboard accessible by default. */
+@media (max-width: 620px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--s2);
+  }
+}
+
+
+/* ==========================================================================
+   5. TYPOGRAPHY AND PROSE
+   ========================================================================== */
+
+h1, h2, h3, h4 {
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--s2);
+}
+
+h1 { font-size: 32px; }
+h2 { font-size: 22px; margin-top: var(--s5); }
+h3 { font-size: 18px; margin-top: var(--s4); }
+h4 { font-size: var(--size-body); margin-top: var(--s3); }
+
+/* First heading in a section should not push itself away from the top. */
+.section > h2:first-child,
+.section > h3:first-child { margin-top: 0; }
+
+p { margin: 0 0 var(--s3); }
+
+/* The single introductory paragraph under a page title. */
+.lead {
+  font-size: 19px;
+  color: var(--text);
+  margin-bottom: var(--s4);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+a:hover { color: var(--accent-strong); }
+
+strong { font-weight: 600; }
+
+ul, ol {
+  margin: 0 0 var(--s3);
+  padding-left: 1.25em;
+}
+li { margin-bottom: var(--s1); }
+li:last-child { margin-bottom: 0; }
+
+/* Bullet list of specs and techniques on a project page. */
+.spec-list li { margin-bottom: var(--s2); }
+
+figure { margin: 0; }
+
+figcaption {
+  font-family: var(--font-mono);
+  font-size: var(--size-meta);
+  color: var(--muted);
+  margin-top: var(--s1);
+  line-height: 1.5;
+}
+
+/* Portrait or workshop photo on the home page. */
+.portrait {
+  max-width: 240px;
+  border: 1px solid var(--hairline);
+  margin-bottom: var(--s4);
+}
+
+
+/* ==========================================================================
+   6. META TEXT, TAGS, BUTTONS
+   The monospace face is used ONLY for metadata: years, categories, captions,
+   specs labels. It is the one deliberate typographic signature on the site.
+   ========================================================================== */
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: var(--size-meta);
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: var(--s1);
+}
+
+.tag-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1);
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  padding: 2px 7px;
+  white-space: nowrap;
+}
+
+/* Row of text links, e.g. LinkedIn / GitHub / Email / Resume. */
+.link-row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+  font-size: var(--size-small);
+}
+
+/* A quiet outlined button, used for the resume download. */
+.button {
+  display: inline-block;
+  font-size: var(--size-small);
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  padding: 8px 14px;
+}
+.button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+
+/* ==========================================================================
+   7. PROJECT CARDS AND GRID
+   ========================================================================== */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s5) var(--s3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* The home page shows fewer, larger cards. */
+.project-grid--featured { grid-template-columns: repeat(2, 1fr); }
+
+@media (max-width: 900px) {
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .project-grid,
+  .project-grid--featured { grid-template-columns: 1fr; }
+}
+
+.card {
+  position: relative;
+  margin: 0;
+}
+
+.card-thumb {
+  display: block;
+  border: 1px solid var(--hairline);
+  background: var(--surface);
+  margin-bottom: var(--s2);
+}
+
+.card-thumb img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: opacity 120ms ease;
+}
+
+.card-title {
+  font-size: var(--size-body);
+  margin: 0 0 4px;
+}
+
+.card-title a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* Makes the whole card clickable while keeping one real link for
+   screen readers and keyboards. */
+.card-title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.card-blurb {
+  margin: 0 0 var(--s1);
+  font-size: var(--size-small);
+  color: var(--text);
+}
+
+.card-meta { margin: 0; }
+
+/* The only hover effect on the site, and it is deliberately small. */
+.card:hover .card-thumb img { opacity: 0.92; }
+.card:hover .card-title a { text-decoration: underline; }
+
+.card:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+}
+
+/* Shown if JavaScript is turned off. */
+.noscript-note {
+  border: 1px solid var(--hairline);
+  padding: var(--s2);
+  font-size: var(--size-small);
+}
+
+
+/* ==========================================================================
+   8. CATEGORY FILTERS (projects page)
+   ========================================================================== */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1);
+  margin-bottom: var(--s3);
+  padding-bottom: var(--s3);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.filter {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  padding: 6px 11px;
+  cursor: pointer;
+}
+.filter:hover { color: var(--accent); border-color: var(--accent); }
+
+.filter[aria-pressed="true"] {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--surface);
+}
+
+.filter-status {
+  font-family: var(--font-mono);
+  font-size: var(--size-meta);
+  color: var(--muted);
+  margin: 0 0 var(--s4);
+}
+
+.is-hidden { display: none !important; }
+
+
+/* ==========================================================================
+   9. PROJECT PAGES
+   ========================================================================== */
+
+.project-header { margin-bottom: var(--s4); }
+
+.project-header h1 { margin-bottom: var(--s2); }
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2);
+  margin-bottom: var(--s3);
+}
+
+/* Stack of large photos. */
+.gallery {
+  display: grid;
+  gap: var(--s4);
+  margin: var(--s4) 0;
+}
+
+/* Add class "gallery--two" for a 2-column grid of smaller shots. */
+.gallery--two { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 560px) {
+  .gallery--two { grid-template-columns: 1fr; }
+}
+
+.shot-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--hairline);
+  background: var(--surface);
+  cursor: zoom-in;
+}
+.shot-btn img { width: 100%; transition: opacity 120ms ease; }
+.shot-btn:hover img { opacity: 0.92; }
+
+/* Video: 16:9 facade that only loads YouTube after a click. */
+.video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  margin: var(--s4) 0;
+}
+
+.video iframe,
+.video .video-play {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-play {
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-play img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: rgba(20, 20, 20, 0.78);
+  transition: background 120ms ease;
+}
+.video-play:hover .video-icon { background: rgba(20, 20, 20, 0.92); }
+.video-icon svg { width: 22px; height: 22px; fill: #fff; margin-left: 3px; }
+
+/* Previous / next links at the foot of a project page. */
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s3);
+  border-top: 1px solid var(--hairline);
+  padding-top: var(--s3);
+  margin-top: var(--s6);
+  font-size: var(--size-small);
+}
+.pager a { display: block; }
+.pager-next { text-align: right; }
+.pager .eyebrow { margin-bottom: 2px; }
+
+
+/* ==========================================================================
+   10. LIGHTBOX (built by main.js, styled here)
+   ========================================================================== */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(10, 10, 10, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s4);
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+.lightbox.is-open { opacity: 1; }
+
+.lightbox img {
+  max-width: 92vw;
+  max-height: 84vh;
+  width: auto;
+  object-fit: contain;
+}
+
+.lightbox-caption {
+  position: absolute;
+  bottom: var(--s3);
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #d8d8d6;
+  font-family: var(--font-mono);
+  font-size: var(--size-meta);
+  padding: 0 var(--s4);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: var(--s2);
+  right: var(--s2);
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  padding: 7px 11px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.lightbox-close:hover { border-color: #fff; }
+
+body.lightbox-open { overflow: hidden; }
+
+
+/* ==========================================================================
+   11. RESUME AND LISTS
+   ========================================================================== */
+
+/* A labelled block: heading on the left, content on the right. */
+.entry {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: var(--s3);
+  padding: var(--s3) 0;
+  border-top: 1px solid var(--hairline);
+}
+.entry:last-child { border-bottom: 1px solid var(--hairline); }
+
+.entry-label {
+  font-family: var(--font-mono);
+  font-size: var(--size-meta);
+  color: var(--muted);
+  padding-top: 3px;
+}
+
+.entry-body > :last-child { margin-bottom: 0; }
+.entry-body h3 { margin-top: 0; }
+
+@media (max-width: 620px) {
+  .entry { grid-template-columns: 1fr; gap: var(--s1); }
+}
+
+/* Grouped skills. */
+.skill-group { margin-bottom: var(--s4); }
+.skill-group:last-child { margin-bottom: 0; }
+
+.skill-group h3 {
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.skill-group p { margin: 0; }
+
+/* Short "experiments and works in progress" list. */
+.plain-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.plain-list li {
+  padding: var(--s2) 0;
+  border-top: 1px solid var(--hairline);
+  font-size: var(--size-small);
+}
+.plain-list li:last-child { border-bottom: 1px solid var(--hairline); }
+
+
+/* ==========================================================================
+   12. FOOTER
+   ========================================================================== */
+
+.site-footer {
+  border-top: 1px solid var(--hairline);
+  padding: var(--s4) 0 var(--s5);
+  font-size: var(--size-small);
+  color: var(--muted);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  align-items: center;
+}
+
+.footer-inner p,
+.footer-inner ul { margin: 0; }
+
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--accent); }
+
+
+/* ==========================================================================
+   13. PRINT
+   Makes the resume page print cleanly onto paper.
+   ========================================================================== */
+
+@media print {
+  .site-header,
+  .site-footer,
+  .skip-link,
+  .theme-toggle,
+  .filters,
+  .pager { display: none; }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+
+  main { padding: 0; }
+  .wrap { max-width: 100%; padding: 0; }
+  a { color: #000; text-decoration: underline; }
+  .entry { break-inside: avoid; }
+}

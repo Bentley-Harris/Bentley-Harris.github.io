@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Photo to come">
+  <rect width="800" height="600" fill="#e6e6e6"/>
+  <rect x="1" y="1" width="798" height="598" fill="none" stroke="#c9c9c9" stroke-width="2"/>
+  <text x="400" y="308" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28" fill="#8a8a8a">photo goes here</text>
+</svg>
