@@ -949,4 +949,126 @@ figcaption { margin-top: var(--s2); }
     transform: none;
   }
 }
+/* ==========================================================================
+   15. TYPEFACE  —  IBM Plex
+
+   Paste at the very END of assets/css/style.css, after block 14.
+
+   SETUP: create the folder assets/fonts/ and put these four files in it:
+       IBMPlexSans-Regular.woff2
+       IBMPlexSans-SemiBold.woff2
+       IBMPlexSans-Italic.woff2
+       IBMPlexMono-Regular.woff2
+       LICENSE.txt            (keep this — the licence requires it)
+
+   No CDN, no build step, no internet needed. The files sit in your folder
+   like every other asset, so the site still works offline and will still
+   work in ten years. 260 KB total, cached after the first page view.
+
+   WHY PLEX: it was commissioned by IBM as a corporate typeface for an
+   engineering company, and the Sans and Mono are designed as a family. Your
+   stylesheet already uses monospace as its one deliberate signature — this
+   makes that pairing intentional rather than incidental.
+
+   TO UNDO: delete this block. The system fonts come straight back.
+   ========================================================================== */
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("../fonts/IBMPlexSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;   /* show text immediately in the fallback, swap when ready */
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("../fonts/IBMPlexSans-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("../fonts/IBMPlexSans-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../fonts/IBMPlexMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Point the existing tokens at the new faces. Everything else on the site
+   already reads from these two variables, so this one change propagates
+   through every page. The system stack stays as a fallback. */
+:root {
+  --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono",
+               Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* Plex has a slightly smaller x-height than most system fonts, so the body
+   text wants a touch more size and line height to read the same. */
+body {
+  font-size: 17.5px;
+  line-height: 1.68;
+}
+
+/* Plex Mono is wider than most system monos. Drop the metadata a hair so
+   long category lines still fit on a phone. */
+.meta,
+figcaption { font-size: 12.5px; }
+
+
+/* ==========================================================================
+   16. OPTIONAL — MORE VISIBLE STILL
+
+   Block 14 was deliberately quiet. If after the typeface you still want
+   more, these two are the next real steps up. Add them one at a time.
+   ========================================================================== */
+
+/* --- 16a. A bigger, more confident page title -----------------------------
+   Block 14 capped h1 at 48px. On a laptop that is still polite. This lets
+   it reach 64px, which is where a name at the top of a page starts to feel
+   like a masthead rather than a heading. */
+
+h1 {
+  font-size: clamp(38px, 7vw, 64px);
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+
+/* --- 16b. A tinted band behind the Skills section -------------------------
+   Four dense paragraphs of comma-separated skills is the flattest part of
+   the home page. A background tint breaks the page into sections without
+   adding a single moving part.
+
+   REQUIRES ONE HTML EDIT: on index.html, find the <section> that contains
+   the "Skills" heading and add the class, e.g.
+       <section class="section band">
+   -------------------------------------------------------------------------- */
+
+.band {
+  background: var(--surface);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  padding: var(--s6) 0;
+  margin: var(--s6) 0;
+}
+
+/* The band runs edge to edge while its contents stay in the reading column. */
+.band > .wrap,
+.band > .measure {
+  margin-left: auto;
+  margin-right: auto;
+}
 
