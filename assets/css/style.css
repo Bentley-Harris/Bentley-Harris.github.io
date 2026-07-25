@@ -810,3 +810,143 @@ body.lightbox-open { overflow: hidden; }
   a { color: #000; text-decoration: underline; }
   .entry { break-inside: avoid; }
 }
+
+/* ==========================================================================
+   14. VISUAL REFINEMENTS
+   Paste this whole block at the very END of assets/css/style.css.
+
+   It only overrides — it changes nothing above it, so to undo any part,
+   delete that part. To undo everything, delete this whole block.
+
+   Three sections, in order of impact. Try A on its own first and live with
+   it for a day before adding B and C.
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   A. TYPE SCALE  <- do this one first, it is 80% of the effect
+
+   The original scale steps 17 → 18 → 22 → 32. An h3 at 18px sitting next to
+   17px body text is only 1.06x larger, so headings do not read as headings
+   and a long page turns into one grey mass. This opens the steps out to
+   roughly 1.25x each, and lets h1 and h2 scale with the viewport so they
+   have real presence on a laptop without overwhelming a phone.
+
+   Nothing here adds movement. It is the same design, just better spaced.
+   -------------------------------------------------------------------------- */
+
+h1 {
+  font-size: clamp(34px, 5.5vw, 48px);
+  letter-spacing: -0.025em;   /* large type needs tighter tracking */
+  line-height: 1.12;
+}
+
+h2 {
+  font-size: clamp(23px, 2.6vw, 28px);
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 19px;
+  letter-spacing: -0.005em;
+}
+
+.lead {
+  font-size: 20px;
+  line-height: 1.55;
+}
+
+/* The home page title is the first thing anyone sees. Give it room. */
+.project-header h1,
+.page-title {
+  margin-bottom: var(--s3);
+}
+
+
+/* --------------------------------------------------------------------------
+   B. ACCENT AND DETAIL
+
+   The accent colour is currently used on links only. These bring it into
+   two more places so the page is not entirely greyscale, and lean harder
+   into the monospace-metadata idea that is already the best thing in the
+   design.
+   -------------------------------------------------------------------------- */
+
+/* A short accent rule above each section heading. Adds structure and colour
+   without adding a single moving part. If it feels like too much on the
+   project pages, narrow the selector to `.section > h2::before`. */
+h2::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--accent);
+  margin-bottom: var(--s2);
+  opacity: 0.85;
+}
+
+/* The pager and gallery headings do not need the rule. */
+.pager h2::before,
+.video + h2::before { content: none; }
+
+/* Slightly stronger link underlines — currently very faint. */
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover { text-decoration-thickness: 2px; }
+
+/* The portrait is capped at 240px, which is small for the one photo on the
+   home page. This lets it breathe without dominating. */
+.portrait {
+  max-width: 300px;
+}
+
+/* Captions currently sit very close to the image. */
+figcaption { margin-top: var(--s2); }
+
+/* --------------------------------------------------------------------------
+   C. CARDS
+
+   The grid is the first real impression on the projects page. These are
+   small changes: a warmer resting state, and a hover that reads as
+   deliberate rather than accidental.
+   -------------------------------------------------------------------------- */
+
+.card-thumb {
+  overflow: hidden;                    /* keeps the image inside the border */
+  background: var(--surface);
+}
+
+.card-thumb img {
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+/* Replaces the existing opacity-only hover. Still the only hover on the
+   site, still small — 1.5% is barely perceptible but reads as responsive. */
+.card:hover .card-thumb img {
+  opacity: 1;
+  transform: scale(1.015);
+}
+
+.card:hover .card-title a { color: var(--accent); }
+
+/* Give the card title a touch more weight against the blurb under it. */
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* A little more air between rows so the grid does not feel packed. */
+.project-grid { gap: var(--s6) var(--s3); }
+
+/* Respect people who ask their system for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  .card-thumb img,
+  .card:hover .card-thumb img {
+    transition: none;
+    transform: none;
+  }
+}
+

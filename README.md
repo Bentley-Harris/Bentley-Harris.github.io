@@ -334,7 +334,7 @@ Your address is `https://yourusername.github.io`. Refresh if it is not there
 immediately.
 
 **6. Go back and fix the sharing tags.** Now that you know your address, find
-and replace `https://YOUR-USERNAME.github.io` across all files with your real
+and replace `https://bentley-harris.github.io` across all files with your real
 address. These have to be full addresses for LinkedIn link previews to work.
 
 ### Making changes later
@@ -402,7 +402,7 @@ you are handing the address to employers.
    have changed.
 4. DNS changes take anywhere from a few minutes to a day. Once it works, tick
    **Enforce HTTPS** on the same GitHub settings page.
-5. Update `https://YOUR-USERNAME.github.io` in the sharing tags one more time,
+5. Update `https://bentley-harris.github.io` in the sharing tags one more time,
    to your new domain.
 
 ---
