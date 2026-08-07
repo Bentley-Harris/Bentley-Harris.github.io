@@ -6,8 +6,6 @@
   <title>Handheld Message Console — Bentley Harris</title>
   <meta name="description" content="A 3D printed handheld device with an OLED menu system, 365 stored messages, a favourites list and battery monitoring.">
 
-  <!-- >>> FILL IN: replace https://bentley-harris.github.io with your real
-       site address once you have deployed. -->
   <meta property="og:type" content="article">
   <meta property="og:title" content="Handheld Message Console — Bentley Harris">
   <meta property="og:description" content="A 3D printed handheld device with an OLED menu system, 365 stored messages, a favourites list and battery monitoring.">
@@ -26,14 +24,12 @@
   </script>
 </head>
 
-<!-- data-project-id must match the "id" in assets/js/projects.js. It is what
-     makes the previous/next links at the bottom of this page work. -->
 <body data-project-id="handheld-message-console">
 
 <a class="skip-link" href="#main">Skip to content</a>
 
 <!-- ============================================================
-     HEADER — identical on every page. Links start with ../ because
+     HEADER: identical on every page. Links start with ../ because
      this page sits inside the projects/ folder.
      ============================================================ -->
 <header class="site-header">
@@ -77,8 +73,6 @@
       </header>
 
       <p class="lead">A handheld device I designed and built as a gift, roughly the shape and feel of a Game Boy. It holds 365 messages, one for each day of the year, which you scroll through with physical buttons. Any message can be marked as a favourite and revisited later from its own list.</p>
-      <!-- >>> FILL IN: replace this bracketed paragraph with your own. -->
-      <p>[One sentence on who it was for and the occasion.]</p>
 
       <h2>Key details</h2>
       <ul class="spec-list">
@@ -88,8 +82,7 @@
         <li>Added a settings menu for sound and screen brightness.</li>
         <li>Battery monitoring with a live voltage readout, so the device shows how much charge is left rather than simply dying.</li>
         <li>Built the circuit on a fully soldered board and finished it to a standard I was happy to hand over as a gift.</li>
-        <!-- >>> FILL IN -->
-        <li>[How you stored 365 messages and anything you had to do to fit them in memory. That detail is more interesting to an engineer reading this than it might seem.]</li>
+        <li>Fitting all 365 messages into the Arduino's storage took a compression scheme of my own. The messages would not fit as plain text, so I scanned them for words and phrases that came up repeatedly, stored each of those chunks once as its own variable, and had the message text reference them instead of repeating them. Rebuilding the full message at display time cut the stored character count enough to fit the messages into the memory available.</li>
       </ul>
     </div>
 
@@ -183,12 +176,6 @@
 
     <div class="measure">
 
-      <!-- ============================================================
-           VIDEO
-           YouTube is only loaded once someone clicks play. The ID below
-           is live. Needs a still at 1280x720 saved as video-thumb.jpg in
-           this project's image folder.
-           ============================================================ -->
       <h2>Video</h2>
       <div class="video" data-youtube-id="QsPowW7vD5k" data-video-title="Handheld message console demonstration">
         <button class="video-play" type="button" aria-label="Play video: Handheld message console demonstration">
@@ -202,20 +189,16 @@
       <h2>What I learned</h2>
       <p>Most of the work was in the firmware, not the hardware. Getting a menu to feel right with only a few buttons took far longer than wiring the parts together: every mode needs an obvious way back out, and the device has to survive someone pressing buttons in an order I never anticipated without ending up stuck in a state it cannot leave.</p>
       <p>The other lesson was physical. Designing an enclosure around components is very different from designing one in isolation, and the tolerances that matter are the ones you only find after the first print.</p>
-      <!-- >>> FILL IN: replace this bracketed paragraph with your own. -->
-      <p>[What you would change about the enclosure, the button feel or the layout if you printed another one.]</p>
 
     </div>
 
-    <!-- Previous / next links are built from the order of projects.js.
-         Nothing to fill in here. -->
     <nav class="pager" data-pager aria-label="More projects"></nav>
 
   </div>
 </main>
 
 <!-- ============================================================
-     FOOTER — identical on every page.
+     FOOTER: identical on every page.
      ============================================================ -->
 <footer class="site-footer">
   <div class="wrap wrap--wide footer-inner">

@@ -25,13 +25,12 @@
   </script>
 </head>
 
-<!-- >>> FILL IN: data-project-id must exactly match the "id" in projects.js -->
 <body data-project-id="welding-exercise">
 
 <a class="skip-link" href="#main">Skip to content</a>
 
 <!-- ============================================================
-     HEADER — identical on every page, except that the links start
+     HEADER: identical on every page, except that the links start
      with ../ because this page sits inside the projects/ folder.
      ============================================================ -->
 <header class="site-header">
@@ -60,21 +59,13 @@
 <main id="main">
   <div class="wrap wrap--wide">
 
-    <!-- ============================================================
-         SLOT 1 — TITLE, YEAR, CATEGORY, TAGS
-         ============================================================ -->
     <div class="measure">
       <header class="project-header">
-        <!-- >>> FILL IN: the project title -->
         <h1>Welding Exercise</h1>
 
         <div class="project-meta">
-          <!-- >>> FILL IN: year and category. Keep these the same as the
-               values you put in projects.js. -->
           <span class="meta">2025 &middot; Additional Manufacturing</span>
 
-          <!-- >>> FILL IN: two to four short tags. Delete any you do not
-               need, or copy a line to add more. -->
           <ul class="tag-list">
             <li class="tag">Welding</li>
             <li class="tag">Fillet welds</li>
@@ -83,54 +74,17 @@
         </div>
       </header>
 
-      <!-- ============================================================
-           SLOT 2 — INTRO PARAGRAPH
-           Two to four sentences. Answer two questions: what is it, and
-           why did you build it. Plain and specific. No selling.
-           ============================================================ -->
-      <p class="lead">Welding practice on mild steel plate: corner joints and tee fillets, taken from tacked setup through to finished runs. The point of the exercise was consistency — keeping the bead profile and travel speed even along the full length of each joint.</p>
-      <!-- >>> FILL IN: replace this bracketed paragraph with your own. -->
-      <p>[One or two sentences of context: the welding process used (MIG, stick, TIG), and where this was done.]</p>
+      <p class="lead">Welding practice on mild steel plate: corner joints and tee fillets, taken from tacked setup through to finished runs. The point of the exercise was consistency: keeping the bead profile and travel speed even along the full length of each joint.</p>
 
-      <!-- ============================================================
-           SLOT 3 — KEY DETAILS
-           The technical substance. Techniques, components, materials,
-           processes, outcomes. This is the part recruiters actually read,
-           so be specific: "machined the screw on a metal lathe" rather
-           than "used advanced manufacturing techniques".
-           ============================================================ -->
       <h2>Key details</h2>
-      <!-- >>> FILL IN: five to eight bullets. Delete spares, copy to add. -->
       <ul class="spec-list">
         <li>Prepared and tacked the joints square before running the full welds.</li>
         <li>Ran fillet welds on tee joints, working on even bead width and consistent travel speed.</li>
         <li>Welded a continuous bead around an outside corner, keeping the profile through the direction changes.</li>
         <li>Chipped and inspected each run, then repeated the joint to improve on the last attempt.</li>
-        <!-- >>> FILL IN -->
-        <li>[The process and settings — machine, wire or electrode, and plate thickness.]</li>
-        <!-- >>> FILL IN -->
-        <li>[What improved between your first runs and your last.]</li>
       </ul>
     </div>
 
-    <!-- ============================================================
-         SLOT 4 — PHOTO GALLERY
-         Photos stack full width by default. For a two-up grid of
-         smaller shots, change the class to: gallery gallery--two
-
-         EVERY IMAGE NEEDS:
-           - alt text describing what is in the shot, for people using a
-             screen reader and for when an image fails to load
-           - width and height, so the page does not jump about while
-             images load. Use the real pixel dimensions of your file.
-           - loading="lazy" on everything except the first image
-
-         Clicking an image opens it larger. That is handled automatically
-         by the button wrapper — keep the <button> around the <img>.
-
-         >>> FILL IN: swap the src and alt on each figure, and delete any
-         figures you do not need.
-         ============================================================ -->
     <div class="gallery">
 
       <figure>
@@ -180,34 +134,14 @@
 
     </div>
 
-    <div class="measure">
 
-      <!-- ============================================================
-           SLOT 6 — WHAT I LEARNED (optional, but worth writing)
-           Two to four sentences. What went wrong, what you would do
-           differently, what the project taught you. Recruiters read this
-           closely because it shows judgement rather than just output.
-           Do not be falsely modest and do not oversell — just be honest.
-           ============================================================ -->
-      <h2>What I learned</h2>
-      <!-- >>> FILL IN -->
-      <p>What was harder than expected, what you would change, and what you
-        took away from it.</p>
-
-    </div>
-
-    <!-- ============================================================
-         PREVIOUS / NEXT
-         Built automatically from the order of projects.js. Nothing to
-         fill in — just leave this here.
-         ============================================================ -->
     <nav class="pager" data-pager aria-label="More projects"></nav>
 
   </div>
 </main>
 
 <!-- ============================================================
-     FOOTER — identical on every page.
+     FOOTER: identical on every page.
      ============================================================ -->
 <footer class="site-footer">
   <div class="wrap wrap--wide footer-inner">

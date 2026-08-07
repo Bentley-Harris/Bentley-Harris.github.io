@@ -205,7 +205,7 @@
 
     var html = "";
     for (var i = 0; i < EXPERIMENTS.length; i++) {
-      html += '<li><strong>' + esc(EXPERIMENTS[i].title) + '</strong> &mdash; ' +
+      html += '<li><strong>' + esc(EXPERIMENTS[i].title) + '.</strong> ' +
               esc(EXPERIMENTS[i].note) + '</li>';
     }
     list.innerHTML = html;

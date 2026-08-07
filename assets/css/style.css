@@ -492,7 +492,8 @@ figcaption {
 }
 
 /* Shown if JavaScript is turned off. */
-.noscript-note {
+.noscript-note,
+.site-note {
   border: 1px solid var(--hairline);
   padding: var(--s2);
   font-size: var(--size-small);

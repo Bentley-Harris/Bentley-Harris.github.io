@@ -6,8 +6,6 @@
   <title>Self-Stabilising Floating House — Bentley Harris</title>
   <meta name="description" content="A floating structure that keeps itself level using an IMU and a PID control loop, with a custom handheld controller and full telemetry logging.">
 
-  <!-- >>> FILL IN: replace https://bentley-harris.github.io with your real
-       site address once you have deployed. -->
   <meta property="og:type" content="article">
   <meta property="og:title" content="Self-Stabilising Floating House — Bentley Harris">
   <meta property="og:description" content="A floating structure that keeps itself level using an IMU and a PID control loop, with a custom handheld controller and full telemetry logging.">
@@ -26,14 +24,12 @@
   </script>
 </head>
 
-<!-- data-project-id must match the "id" in assets/js/projects.js. It is what
-     makes the previous/next links at the bottom of this page work. -->
 <body data-project-id="self-stabilising-floating-house">
 
 <a class="skip-link" href="#main">Skip to content</a>
 
 <!-- ============================================================
-     HEADER — identical on every page. Links start with ../ because
+     HEADER: identical on every page. Links start with ../ because
      this page sits inside the projects/ folder.
      ============================================================ -->
 <header class="site-header">
@@ -77,19 +73,13 @@
         </div>
       </header>
 
-      <p class="lead">This was a university project and the largest thing I have built. It is a house on a floating base that keeps itself level when the water underneath it moves, sensing the tilt and correcting it rather than riding with it. It took more than fifty hours of design work, and I built every part of it: the enclosure, the control electronics, the handheld controller and the code.</p>
-      <!-- >>> DRAFT: written from the system decomposition. Check the team
-           wording against what you actually did before publishing. -->
-      <p>The brief was station-keeping flood-resistant housing: a structure that stays upright and holds its position while the water beneath it moves and fans drive wind across it at roughly 2&nbsp;m/s. It had to fit a 300&nbsp;&times;&nbsp;250&nbsp;&times;&nbsp;280&nbsp;mm envelope with the base no more than 80&nbsp;mm deep, keep a 155&nbsp;&times;&nbsp;155&nbsp;&times;&nbsp;150&nbsp;mm open internal volume, float with an extra 3&nbsp;kg test load aboard, and run entirely from the 12&nbsp;V, 2&nbsp;A supply provided at the test rig. Scoring came from a camera tracking system that measured how far the structure drifted and rotated over a five-minute run. I worked on the power and control subteam, which made the electronics, the firmware and the operator controls mine end to end.</p>
+      <p class="lead">This was a university team project and the largest thing I have worked on. It is a house on a floating base that keeps itself level when the water underneath it moves, sensing the tilt and correcting it rather than riding with it. It took more than fifty hours of design work across the team, and the write-up below covers the electronics, firmware and operator controls I contributed to.</p>
+      <p>The brief was station-keeping flood-resistant housing: a structure that stays upright and holds its position while the water beneath it moves and fans drive wind across it at roughly 2&nbsp;m/s. It had to fit a 300&nbsp;&times;&nbsp;250&nbsp;&times;&nbsp;280&nbsp;mm envelope with the base no more than 80&nbsp;mm deep, keep a 155&nbsp;&times;&nbsp;155&nbsp;&times;&nbsp;150&nbsp;mm open internal volume, float with an extra 3&nbsp;kg test load aboard, and run entirely from the 12&nbsp;V, 2&nbsp;A supply provided at the test rig. Scoring came from a camera tracking system that measured how far the structure drifted and rotated over a five-minute run.</p>
 
       <h2>Key details</h2>
-      <!-- >>> DRAFT: written from the system decomposition spreadsheet.
-           Every number below came from that document. Check them, cut
-           anything that reads as too much detail, and fill the one
-           bracketed gap in the results bullet. -->
       <ul class="spec-list">
         <li>Buoyancy from a closed-cell XPS foam billet, 250&nbsp;&times;&nbsp;250&nbsp;&times;&nbsp;70&nbsp;mm, with the centre machined out to press-fit the printed chassis. Foam over a sealed hull was deliberate: a breached hull sinks, whereas breached foam keeps floating.</li>
-        <li>Superstructure designed in CAD and 3D printed in PET-G, press-fitted into the foam and sealed with epoxy and silicone. PET-G over PLA for layer adhesion and heat resistance, and because the IMU mounts to the roof — any flex in that surface feeds straight into the tilt readings.</li>
+        <li>Superstructure designed in CAD and 3D printed in PET-G, press-fitted into the foam and sealed with epoxy and silicone. PET-G over PLA for layer adhesion and heat resistance, and because the IMU mounts to the roof, so any flex in that surface feeds straight into the tilt readings.</li>
         <li>Four N20 12&nbsp;V 100&nbsp;RPM gearmotors at the corners, each on a printed two-piece clamp mount, driving a printed ~15&nbsp;mm spool locked to the D-shaft with a grub screw.</li>
         <li>Tethers of 50&nbsp;lb braided nylon run from each spool through PTFE pass-throughs to two barrel-swivel anchors on the base plate, rigged as V-pairs. Lead sinkers hold a baseline pre-tension so the lines never go slack between corrections.</li>
         <li>Control electronics on hand-soldered stripboard, laid out in KiCad and built as a two-board sandwich stack on M3 standoffs rather than a breadboard, for vibration resistance and density.</li>
@@ -99,8 +89,6 @@
         <li>Firmware on an Arduino Nano running a roll-axis PID loop with anti-windup and integral leak, a four-channel motor mixing matrix, and a five-state machine covering halt, run, manual, IMU fault and an emergency float mode that reels out automatically if tilt exceeds 10° for a sustained period.</li>
         <li>Wired operator pod with a CAD-designed printed enclosure and its own soldered board: one pot scales maximum motor authority and doubles as a kill input, a second sets the PID deadband between 0.5° and 5°, and a centre-return rocker reels all four tethers in or out. Two indicator LEDs show the 12&nbsp;V and 5&nbsp;V rails separately, so a dead logic rail is obvious at a glance.</li>
         <li>Logged every IMU reading from every test run, producing spreadsheets thousands of lines long, and analysed those datasets to find where the loop was overshooting rather than guessing from watching it move.</li>
-        <!-- >>> FILL IN: the one number that matters most on this page. -->
-        <li>[How well it actually held level — the measured figure from your test runs. The flood-rig telemetry in the photos reads Deck 3° and Deck Integral 20.5; if that run was representative, say so here and say over what duration.]</li>
       </ul>
     </div>
 
@@ -250,13 +238,6 @@
 
     <div class="measure">
 
-      <!-- ============================================================
-           VIDEO
-           YouTube is only loaded once someone clicks play. The IDs below
-           are live. Each block needs its still image at 1280x720 in this
-           project's image folder:
-             video-thumb-01.jpg  video-thumb-02.jpg  video-thumb-03.jpg
-           ============================================================ -->
       <h2>Video</h2>
 
       <h3>First bench test of the IMU and microcontroller</h3>
@@ -292,21 +273,16 @@
       <h2>What I learned</h2>
       <p>The control loop was the hard part, and guessing at PID values got me nowhere. Logging every IMU reading and looking at the data afterwards is what actually moved it forward, because I could see exactly where and by how much the system was overshooting instead of guessing from watching it move.</p>
       <p>The decision that saved the most time was putting live parameter adjustment on the handheld controller. Changing sensitivity mid-test instead of reflashing the Arduino after every attempt turned a slow cycle into a fast one, and I would build that in from the start on anything with parameters to tune.</p>
-      <!-- >>> DRAFT: this is the strongest lesson in the whole project.
-           Check it reads the way you remember it. -->
-      <p>The thing I would change is the rigging. Both front and rear lines on each side converge to a single anchor, and that geometry gives the system plenty of leverage in roll but almost none in pitch — so the pitch PID ended up switched off entirely, with its gains at zero, because no amount of tuning could produce authority the mechanical layout did not allow. It was a control problem I could not solve in software because it was never really a software problem. Four independent anchor points instead of two would have given both axes something to push against, and I would settle the rigging geometry before writing a line of the control loop next time.</p>
 
     </div>
 
-    <!-- Previous / next links are built from the order of projects.js.
-         Nothing to fill in here. -->
     <nav class="pager" data-pager aria-label="More projects"></nav>
 
   </div>
 </main>
 
 <!-- ============================================================
-     FOOTER — identical on every page.
+     FOOTER: identical on every page.
      ============================================================ -->
 <footer class="site-footer">
   <div class="wrap wrap--wide footer-inner">
