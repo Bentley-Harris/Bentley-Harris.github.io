@@ -58,14 +58,14 @@ window.PROJECTS = [
   },
 
 {
-    id: "supercapacitor-bank",
-    title: "Supercapacitor Bank",
-    year: "2025",
-    categories: ["Electronics & Embedded", "Fabrication & Manufacturing"],
-    blurb: "A monitored capacitor bank with per-cell voltage readout and controlled discharge.",
-    thumb: "assets/img/supercapacitor-bank/thumb.jpg",
-    tags: ["Arduino", "Voltage monitoring", "OLED", "Machining"],
-    url: "projects/supercapacitor-bank.html",
+    id: "esp32-wifi-test-ap",
+    title: "ESP32 Wi-Fi Test Access Point",
+    year: "2026",
+    categories: ["Electronics & Embedded"],
+    blurb: "An ESP32-C3 running its own password-protected Wi-Fi network to test projects on.",
+    thumb: "assets/img/esp32-wifi-test-ap/thumb.jpg",
+    tags: ["ESP32", "Wi-Fi", "OLED", "I²C"],
+    url: "projects/esp32-wifi-test-ap.html",
     featured: true
   },
 
@@ -82,14 +82,26 @@ window.PROJECTS = [
   },
 
 {
-    id: "esp32-wifi-test-ap",
-    title: "ESP32 Wi-Fi Test Access Point",
-    year: "2026",
+    id: "arduino-led-heart",
+    title: "LED Heart",
+    year: "2025–2026",
     categories: ["Electronics & Embedded"],
-    blurb: "An ESP32-C3 running its own password-protected Wi-Fi network to test projects on.",
-    thumb: "assets/img/esp32-wifi-test-ap/thumb.jpg",
-    tags: ["ESP32", "Wi-Fi", "OLED", "I²C"],
-    url: "projects/esp32-wifi-test-ap.html",
+    blurb: "A gift first built on an Arduino, now being rebuilt with two 555 timers and no code.",
+    thumb: "assets/img/arduino-led-heart/thumb.jpg",
+    tags: ["Arduino", "555 timer", "PWM", "Soldering"],
+    url: "projects/arduino-led-heart.html",
+    featured: false
+  },
+
+{
+    id: "supercapacitor-bank",
+    title: "Supercapacitor Bank",
+    year: "2025",
+    categories: ["Electronics & Embedded", "Fabrication & Manufacturing"],
+    blurb: "A monitored capacitor bank with per-cell voltage readout and controlled discharge.",
+    thumb: "assets/img/supercapacitor-bank/thumb.jpg",
+    tags: ["Arduino", "Voltage monitoring", "OLED", "Machining"],
+    url: "projects/supercapacitor-bank.html",
     featured: false
   },
 
@@ -118,18 +130,6 @@ window.PROJECTS = [
   },
 
 {
-    id: "emp-circuit",
-    title: "EMP Circuit",
-    year: "2026",
-    categories: ["Electronics & Embedded"],
-    blurb: "A high-voltage experiment in energy storage and fast switching through a coil.",
-    thumb: "assets/img/emp-circuit/thumb.jpg",
-    tags: ["High voltage", "Energy storage", "Experiment"],
-    url: "projects/emp-circuit.html",
-    featured: false
-  },
-
-{
     id: "solder-fume-extractor-parts",
     title: "Solder Fume Extractor Parts",
     year: "2026",
@@ -138,18 +138,6 @@ window.PROJECTS = [
     thumb: "assets/img/solder-fume-extractor-parts/thumb.jpg",
     tags: ["CAD", "3D printing", "Workshop tooling"],
     url: "projects/solder-fume-extractor-parts.html",
-    featured: false
-  },
-
-{
-    id: "arduino-led-heart",
-    title: "LED Heart",
-    year: "2025–2026",
-    categories: ["Electronics & Embedded"],
-    blurb: "A gift first built on an Arduino, now being rebuilt with two 555 timers and no code.",
-    thumb: "assets/img/arduino-led-heart/thumb.jpg",
-    tags: ["Arduino", "555 timer", "PWM", "Soldering"],
-    url: "projects/arduino-led-heart.html",
     featured: false
   },
 
@@ -212,7 +200,6 @@ window.PROJECTS = [
     url: "projects/camping-cooktop.html",
     featured: false
   }
-
 ];
 
 
