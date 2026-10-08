@@ -346,6 +346,36 @@
 
 
   /* ------------------------------------------------------------------
+     7b. COLLAPSIBLE PHOTO GALLERIES
+     Project galleries sit in <details class="photos"> and start closed.
+     This adds a "Hide photos" button at the bottom of each one, so a
+     visitor who has scrolled through the photos can fold them away
+     without scrolling back up. Closing scrolls the bar back into view.
+     ------------------------------------------------------------------ */
+
+  function setUpPhotoToggles() {
+    var blocks = document.querySelectorAll("details.photos");
+
+    for (var i = 0; i < blocks.length; i++) {
+      (function (block) {
+        var summary = block.querySelector("summary");
+        var close = document.createElement("button");
+        close.type = "button";
+        close.className = "button photos-close";
+        close.textContent = "Hide photos";
+        close.addEventListener("click", function () {
+          block.open = false;
+          var top = block.getBoundingClientRect().top;
+          if (top < 0) block.scrollIntoView({ block: "start" });
+          if (summary) summary.focus({ preventScroll: true });
+        });
+        block.appendChild(close);
+      })(blocks[i]);
+    }
+  }
+
+
+  /* ------------------------------------------------------------------
      8. YOUTUBE FACADE
      The page holds only a thumbnail until the visitor clicks play. The
      iframe is then loaded from youtube-nocookie.com.
@@ -482,6 +512,7 @@
     renderExperiments();
     renderPager();
     setUpLightbox();
+    setUpPhotoToggles();
     setUpVideos();
     setUpThemeToggle();
     setUpEmailLinks();

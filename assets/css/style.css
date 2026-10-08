@@ -1073,3 +1073,105 @@ h1 {
   margin-right: auto;
 }
 
+
+
+/* ==========================================================================
+   17. COLLAPSIBLE PHOTO GALLERIES
+
+   On project pages the gallery sits inside <details class="photos">, so the
+   photos start hidden behind a bar showing a few small previews and a count.
+   The preview tiles are mini-XX.jpg files next to each project's photos
+   (168px squares cropped from the first four shots). main.js adds a
+   "Hide photos" button at the bottom of an open gallery.
+   ========================================================================== */
+
+.photos {
+  margin: var(--s4) 0;
+  scroll-margin-top: var(--s3);  /* breathing room when "Hide photos" scrolls back */
+}
+
+.photos-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  max-width: var(--width-text);
+  padding: 10px 16px 10px 10px;
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  background: var(--surface);
+  cursor: pointer;
+  list-style: none;              /* hides the default triangle */
+  user-select: none;
+  transition: border-color 120ms ease;
+}
+.photos-bar::-webkit-details-marker { display: none; }
+.photos-bar::marker { content: ""; }
+.photos-bar:hover { border-color: var(--accent); }
+.photos-bar:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.photos-strip {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.photos-strip img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border: 1px solid var(--hairline);
+  background: var(--bg);
+}
+
+.photos-label {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: var(--s2);
+  row-gap: 2px;
+}
+.photos-title { font-weight: 600; }
+.photos-count {
+  font-family: var(--font-mono);
+  font-size: var(--size-meta);
+  color: var(--muted);
+}
+
+/* "Show" / "Hide" with a small chevron, swapped by the open state. */
+.photos-toggle {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-mono);
+  font-size: var(--size-meta);
+  color: var(--accent);
+  white-space: nowrap;
+}
+.photos-toggle::before { content: "Show"; }
+.photos[open] .photos-toggle::before { content: "Hide"; }
+.photos-toggle::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 150ms ease;
+}
+.photos[open] .photos-toggle::after { transform: translateY(2px) rotate(-135deg); }
+
+.photos > .gallery { margin-bottom: var(--s3); }
+
+.photos-close { cursor: pointer; background: none; font-family: inherit; }
+
+@media (max-width: 560px) {
+  .photos-strip img { width: 46px; height: 46px; }
+  .photos-strip img:nth-child(n+4) { display: none; }
+}
+@media (max-width: 370px) {
+  .photos-strip img:nth-child(n+3) { display: none; }
+}

@@ -143,7 +143,17 @@
     </div>
 
     <!-- ============================================================
-         SLOT 4 — PHOTO GALLERY
+         SLOT 4 — PHOTO GALLERY (collapsible)
+         The gallery sits inside <details class="photos">, so the photos
+         start hidden behind a bar. The bar shows up to four small preview
+         tiles (mini-01.jpg etc.) and the photo count. Keep the count in
+         .photos-count matching the number of figures.
+
+         Preview tiles are 168x168 squares cropped from the first four
+         photos, saved next to them:
+           convert 01.jpg -auto-orient -strip -resize 168x168^ \
+             -gravity center -extent 168x168 -quality 78 mini-01.jpg
+
          Photos stack full width by default. For a two-up grid of
          smaller shots, change the class to: gallery gallery--two
 
@@ -152,7 +162,8 @@
              screen reader and for when an image fails to load
            - width and height, so the page does not jump about while
              images load. Use the real pixel dimensions of your file.
-           - loading="lazy" on everything except the first image
+           - loading="lazy" (the gallery starts hidden, so every photo
+             should wait until it is opened)
 
          Clicking an image opens it larger. That is handled automatically
          by the button wrapper — keep the <button> around the <img>.
@@ -160,36 +171,51 @@
          >>> FILL IN: swap the src and alt on each figure, and delete any
          figures you do not need.
          ============================================================ -->
-    <div class="gallery">
+    <details class="photos">
+      <summary class="photos-bar">
+        <span class="photos-strip" aria-hidden="true">
+          <img src="../assets/img/PROJECT-SLUG/mini-01.jpg" alt="" width="56" height="56" loading="lazy">
+          <img src="../assets/img/PROJECT-SLUG/mini-02.jpg" alt="" width="56" height="56" loading="lazy">
+          <img src="../assets/img/PROJECT-SLUG/mini-03.jpg" alt="" width="56" height="56" loading="lazy">
+        </span>
+        <span class="photos-label">
+          <span class="photos-title">Photos</span>
+          <span class="photos-count">3 photos</span>
+        </span>
+        <span class="photos-toggle" aria-hidden="true"></span>
+      </summary>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/PROJECT-SLUG/01.jpg"
-               alt="Describe what this photo shows."
-               width="1600" height="1200">
-        </button>
-        <figcaption>A short caption. Say what the reader is looking at.</figcaption>
-      </figure>
+      <div class="gallery">
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/PROJECT-SLUG/02.jpg"
-               alt="Describe what this photo shows."
-               width="1600" height="1200" loading="lazy">
-        </button>
-        <figcaption>A short caption.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/PROJECT-SLUG/01.jpg"
+                 alt="Describe what this photo shows."
+                 width="1600" height="1200" loading="lazy">
+          </button>
+          <figcaption>A short caption. Say what the reader is looking at.</figcaption>
+        </figure>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/PROJECT-SLUG/03.jpg"
-               alt="Describe what this photo shows."
-               width="1600" height="1200" loading="lazy">
-        </button>
-        <figcaption>A short caption.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/PROJECT-SLUG/02.jpg"
+                 alt="Describe what this photo shows."
+                 width="1600" height="1200" loading="lazy">
+          </button>
+          <figcaption>A short caption.</figcaption>
+        </figure>
 
-    </div>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/PROJECT-SLUG/03.jpg"
+                 alt="Describe what this photo shows."
+                 width="1600" height="1200" loading="lazy">
+          </button>
+          <figcaption>A short caption.</figcaption>
+        </figure>
+
+      </div>
+    </details>
 
     <div class="measure">
 

@@ -72,107 +72,123 @@
         </div>
       </header>
 
-      <p class="lead">A handheld device I designed and built as a gift, roughly the shape and feel of a Game Boy. It holds 365 messages, one for each day of the year, which you scroll through with physical buttons. Any message can be marked as a favourite and revisited later from its own list.</p>
+      <p class="lead">A handheld device I designed and built as a gift, made to evoke the retro charm of a Game Boy. It holds 365 short messages, one for each day of the year, which the user navigates with physical buttons. Any message can be marked as a favourite and revisited later from its own list, and the favourites list stays saved in memory even after the device is switched off.</p>
 
       <h2>Key details</h2>
       <ul class="spec-list">
-        <li>Designed the enclosure in CAD and 3D printed it, sized around the display, board and battery.</li>
-        <li>OLED display, physical buttons for navigation, and a buzzer giving audio feedback on presses and menu changes.</li>
-        <li>Wrote a full menu system: scroll through 365 unique messages, mark any of them as a favourite, and open a separate favourites list to read them again.</li>
-        <li>Added a settings menu for sound and screen brightness.</li>
-        <li>Battery monitoring with a live voltage readout, so the device shows how much charge is left rather than simply dying.</li>
-        <li>Built the circuit on a fully soldered board and finished it to a standard I was happy to hand over as a gift.</li>
-        <li>Fitting all 365 messages into the Arduino's storage took a compression scheme of my own. The messages would not fit as plain text, so I scanned them for words and phrases that came up repeatedly, stored each of those chunks once as its own variable, and had the message text reference them instead of repeating them. Rebuilding the full message at display time cut the stored character count enough to fit the messages into the memory available.</li>
+        <li>Designed the enclosure in Fusion 360 and 3D printed it, sized around the display, board and 7.2&nbsp;V NiMH battery.</li>
+        <li>0.96-inch OLED display, physical buttons for navigation, and a piezo buzzer giving audio feedback on presses and menu changes. The brains are an Arduino Nano.</li>
+        <li>Developed a full menu system: scroll through 365 unique messages, mark any of them as a favourite, and open a separate favourites list to read them again.</li>
+        <li>A settings menu lets the user change the screen brightness, automatic screen-off, buzzer feedback sounds and more.</li>
+        <li>Battery monitoring with a live voltage readout, so the device shows how much charge is left rather than simply dying. I also added a low-battery warning that tells the user when it is time to charge.</li>
+        <li>Built the circuit on a custom perfboard and finished it to a standard I was happy to hand over as a gift.</li>
+        <li>Fitting all 365 messages into the Arduino's storage took a compression scheme I worked out. The messages would not fit as plain text, so I scanned them for words and phrases that came up repeatedly, stored each of those chunks once as its own variable, and had the message text reference them instead of repeating them. Rebuilding the full message at display time cut the stored character count enough to fit the messages into the memory available.</li>
       </ul>
     </div>
 
     <!-- ============================================================
          PHOTOS
          ============================================================ -->
-    <div class="gallery">
+    <details class="photos">
+      <summary class="photos-bar">
+        <span class="photos-strip" aria-hidden="true">
+          <img src="../assets/img/handheld-message-console/mini-01.jpg" alt="" width="56" height="56" loading="lazy">
+          <img src="../assets/img/handheld-message-console/mini-02.jpg" alt="" width="56" height="56" loading="lazy">
+          <img src="../assets/img/handheld-message-console/mini-03.jpg" alt="" width="56" height="56" loading="lazy">
+          <img src="../assets/img/handheld-message-console/mini-04.jpg" alt="" width="56" height="56" loading="lazy">
+        </span>
+        <span class="photos-label">
+          <span class="photos-title">Photos</span>
+          <span class="photos-count">9 photos</span>
+        </span>
+        <span class="photos-toggle" aria-hidden="true"></span>
+      </summary>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/handheld-message-console/01.jpg"
-               alt="The finished handheld console in its 3D printed enclosure, showing the main menu on the OLED display."
-               width="1205" height="1600">
-        </button>
-        <figcaption>The finished device, running the main menu.</figcaption>
-      </figure>
+      <div class="gallery">
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/handheld-message-console/02.jpg"
-               alt="The soldered circuit board being test fitted into the 3D printed enclosure on standoffs."
-               width="1205" height="1600" loading="lazy">
-        </button>
-        <figcaption>Test fitting the board into the printed enclosure on standoffs.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/handheld-message-console/01.jpg"
+                 alt="The finished handheld console in its 3D printed enclosure, showing the main menu on the OLED display."
+                 width="1205" height="1600" loading="lazy">
+          </button>
+          <figcaption>The finished device, running the main menu.</figcaption>
+        </figure>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/handheld-message-console/03.jpg"
-               alt="Soldering the underside of the perfboard, held in a pair of helping hands."
-               width="1205" height="1600" loading="lazy">
-        </button>
-        <figcaption>Soldering the underside. Soldered rather than left on a breadboard, because it had to survive being handled.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/handheld-message-console/02.jpg"
+                 alt="The soldered circuit board being test fitted into the 3D printed enclosure on standoffs."
+                 width="1205" height="1600" loading="lazy">
+          </button>
+          <figcaption>Test fitting the board into the printed enclosure on standoffs.</figcaption>
+        </figure>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/handheld-message-console/04.jpg"
-               alt="Close-up of the soldered traces on the underside of the perfboard."
-               width="1600" height="1205" loading="lazy">
-        </button>
-        <figcaption>The solder side up close. Point-to-point runs on perfboard in place of a custom PCB.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/handheld-message-console/03.jpg"
+                 alt="Soldering the underside of the perfboard, held in a pair of helping hands."
+                 width="1205" height="1600" loading="lazy">
+          </button>
+          <figcaption>Soldering the underside. Soldered rather than left on a breadboard, because it had to survive being handled.</figcaption>
+        </figure>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/handheld-message-console/05.jpg"
-               alt="The open rear of the enclosure with the 7.2 V NiMH battery pack being fitted into its compartment."
-               width="1205" height="1600" loading="lazy">
-        </button>
-        <figcaption>The rear compartment, sized around a 7.2&nbsp;V NiMH pack with an XT30 connector so the battery can be swapped.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/handheld-message-console/04.jpg"
+                 alt="Close-up of the soldered traces on the underside of the perfboard."
+                 width="1600" height="1205" loading="lazy">
+          </button>
+          <figcaption>The solder side up close. Point-to-point runs on perfboard in place of a custom PCB.</figcaption>
+        </figure>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/handheld-message-console/06.jpg"
-               alt="The favourites list on the OLED screen, showing a saved message with the battery voltage in the corner."
-               width="1205" height="1600" loading="lazy">
-        </button>
-        <figcaption>The favourites list, with the live battery voltage readout in the corner.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/handheld-message-console/05.jpg"
+                 alt="The open rear of the enclosure with the 7.2 V NiMH battery pack being fitted into its compartment."
+                 width="1205" height="1600" loading="lazy">
+          </button>
+          <figcaption>The rear compartment, sized around a 7.2&nbsp;V NiMH pack with an XT30 connector so the battery can be swapped.</figcaption>
+        </figure>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/handheld-message-console/07.jpg"
-               alt="Exploded isometric CAD view of the three printed enclosure parts: the front shell with two rectangular openings and curved thumb recesses along its edges, the middle body with internal ribs and a side port cutout, and the back plate with four corner standoffs and an engraved dedication."
-               width="1172" height="708" loading="lazy">
-        </button>
-        <figcaption>The enclosure in three printed parts: front shell, body, and engraved back plate.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/handheld-message-console/06.jpg"
+                 alt="The favourites list on the OLED screen, showing a saved message with the battery voltage in the corner."
+                 width="1205" height="1600" loading="lazy">
+          </button>
+          <figcaption>The favourites list, with the live battery voltage readout in the corner.</figcaption>
+        </figure>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/handheld-message-console/08.jpg"
-               alt="Three face-on CAD views of the enclosure parts side by side: the front shell, the middle body and the back plate, each with a screw boss at all four corners, and the back plate carrying an engraved dedication."
-               width="1168" height="498" loading="lazy">
-        </button>
-        <figcaption>Face-on views of the three parts, showing the screw pattern and the display openings.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/handheld-message-console/07.jpg"
+                 alt="Exploded isometric CAD view of the three printed enclosure parts: the front shell with two rectangular openings and curved thumb recesses along its edges, the middle body with internal ribs and a side port cutout, and the back plate with four corner standoffs and an engraved dedication."
+                 width="1172" height="708" loading="lazy">
+          </button>
+          <figcaption>The enclosure in three printed parts: front shell, body, and engraved back plate.</figcaption>
+        </figure>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/handheld-message-console/09.jpg"
-               alt="Three side elevation CAD views in a row giving the profile of each enclosure part: the curved thumb recess in the front shell, the flat-sided middle body, and the thin back plate with its two visible standoffs."
-               width="1162" height="386" loading="lazy">
-        </button>
-        <figcaption>Side elevations: the thumb recess in the front shell, the body, and the standoffs on the back plate.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/handheld-message-console/08.jpg"
+                 alt="Three face-on CAD views of the enclosure parts side by side: the front shell, the middle body and the back plate, each with a screw boss at all four corners, and the back plate carrying an engraved dedication."
+                 width="1168" height="498" loading="lazy">
+          </button>
+          <figcaption>Face-on views of the three parts, showing the screw pattern and the display openings.</figcaption>
+        </figure>
 
-    </div>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/handheld-message-console/09.jpg"
+                 alt="Three side elevation CAD views in a row giving the profile of each enclosure part: the curved thumb recess in the front shell, the flat-sided middle body, and the thin back plate with its two visible standoffs."
+                 width="1162" height="386" loading="lazy">
+          </button>
+          <figcaption>Side elevations: the thumb recess in the front shell, the body, and the standoffs on the back plate.</figcaption>
+        </figure>
+
+      </div>
+    </details>
 
     <div class="measure">
 
@@ -187,8 +203,8 @@
       </div>
 
       <h2>What I learned</h2>
-      <p>Most of the work was in the firmware, not the hardware. Getting a menu to feel right with only a few buttons took far longer than wiring the parts together: every mode needs an obvious way back out, and the device has to survive someone pressing buttons in an order I never anticipated without ending up stuck in a state it cannot leave.</p>
-      <p>The other lesson was physical. Designing an enclosure around components is very different from designing one in isolation, and the tolerances that matter are the ones you only find after the first print.</p>
+      <p>Most of the work was in the firmware, not the hardware. Getting a menu to feel right with only a few buttons took far longer than wiring the parts together. Every mode needs an obvious way back out, and the device has to survive someone pressing buttons in an order I did not originally plan for without getting stuck in a state it cannot leave. It was interesting trying to think the way a user would.</p>
+      <p>The other lesson was physical. Designing an enclosure around components is very different from designing one in isolation, and it took a few redesigns to get everything to fit nice and snug.</p>
 
     </div>
 

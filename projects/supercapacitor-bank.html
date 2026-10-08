@@ -72,87 +72,103 @@
         </div>
       </header>
 
-      <p class="lead">This was the first electronics project I took all the way to finished rather than leaving on a breadboard. It is a bank of supercapacitors with a microcontroller watching every cell individually, an OLED reporting what each one is doing, and terminals I made by hand. I built it to understand how stored energy behaves when it can be released quickly.</p>
+      <p class="lead">This was the first electronics project I took all the way to finished rather than leaving on a breadboard. It is a bank of supercapacitors with an Arduino Nano monitoring every cell individually, a 0.96-inch OLED reporting what each one is doing, and aluminium terminals I made by hand from scrap metal. I built it to understand how stored energy behaves when it can be released quickly (and because I found it interesting to experiment with rapid discharge and its effects on materials).</p>
 
       <h2>Key details</h2>
       <ul class="spec-list">
         <li>Microcontroller-controlled charging, with the voltage of each individual capacitor monitored rather than only the pack as a whole.</li>
-        <li>OLED display showing per-cell voltages alongside overcharge warnings and status indicator LEDs.</li>
-        <li>Controlled discharge into a load, producing large arcs and enough energy to vaporise thin metal.</li>
-        <li>Custom clamp terminals machined by hand from scrap aluminium, because nothing I had on the shelf would carry that current at the connection.</li>
-        <li>Treated as a high-energy build throughout. The monitoring and the warnings exist because a supercapacitor bank does not behave like a battery and gives very little warning when something is wrong.</li>
+        <li>OLED display showing per-cell voltages, overcharge warnings, and the rate of charge (dV/dt) for each capacitor and for the bank as a whole. Status LEDs show charging, near full, full, safe and primed to discharge.</li>
+        <li>Controlled discharge into a load, producing bright flashes and enough energy to vaporise thin metal wire.</li>
+        <li>Custom clamp terminals machined by hand from scrap aluminium.</li>
+        <li>Treated as a high-energy build throughout. The monitoring and the warnings exist because I wanted to learn how to build a system that was not only fun to experiment with, but also informative and safe, so I always knew what was happening internally.</li>
       </ul>
     </div>
 
     <!-- ============================================================
          PHOTOS
          ============================================================ -->
-    <div class="gallery">
+    <details class="photos">
+      <summary class="photos-bar">
+        <span class="photos-strip" aria-hidden="true">
+          <img src="../assets/img/supercapacitor-bank/mini-01.jpg" alt="" width="56" height="56" loading="lazy">
+          <img src="../assets/img/supercapacitor-bank/mini-02.jpg" alt="" width="56" height="56" loading="lazy">
+          <img src="../assets/img/supercapacitor-bank/mini-03.jpg" alt="" width="56" height="56" loading="lazy">
+          <img src="../assets/img/supercapacitor-bank/mini-04.jpg" alt="" width="56" height="56" loading="lazy">
+        </span>
+        <span class="photos-label">
+          <span class="photos-title">Photos</span>
+          <span class="photos-count">7 photos</span>
+        </span>
+        <span class="photos-toggle" aria-hidden="true"></span>
+      </summary>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/supercapacitor-bank/01.jpg"
-               alt="The finished supercapacitor bank in its black enclosure: three rocker switches, an arming toggle and key switch, status LEDs, indicator bulbs, the OLED display and the hand-machined aluminium clamp terminals on each side."
-               width="1600" height="1205">
-        </button>
-        <figcaption>The finished unit. Rocker switches, an arming toggle and key switch, status LEDs, the OLED, and the clamp terminals machined from scrap aluminium on either side.</figcaption>
-      </figure>
+      <div class="gallery">
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/supercapacitor-bank/02.jpg"
-               alt="The three supercapacitors mounted to a perfboard, early in the build, with heavy wiring below."
-               width="1205" height="1600" loading="lazy">
-        </button>
-        <figcaption>The bank itself: three supercapacitors on a perfboard carrier, early in the build.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/supercapacitor-bank/01.jpg"
+                 alt="The finished supercapacitor bank in its black enclosure: three rocker switches, an arming toggle and key switch, status LEDs, indicator bulbs, the OLED display and the hand-machined aluminium clamp terminals on each side."
+                 width="1600" height="1205" loading="lazy">
+          </button>
+          <figcaption>The finished unit. Rocker switches, an arming toggle and key switch, status LEDs, the OLED, and the clamp terminals machined from scrap aluminium on either side.</figcaption>
+        </figure>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/supercapacitor-bank/03.jpg"
-               alt="Close-up of the balancing resistors soldered across the 2.7 volt cells."
-               width="1600" height="1205" loading="lazy">
-        </button>
-        <figcaption>Balancing resistors across the 2.7&nbsp;V cells, so no single capacitor drifts above its rating while charging in series.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/supercapacitor-bank/02.jpg"
+                 alt="The three supercapacitors mounted to a perfboard, early in the build, with heavy wiring below."
+                 width="1205" height="1600" loading="lazy">
+          </button>
+          <figcaption>The bank itself: three supercapacitors on a perfboard carrier, early in the build.</figcaption>
+        </figure>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/supercapacitor-bank/04.jpg"
-               alt="The full wiring harness laid out flat before assembly: capacitor module, lever connectors, inline resistors, toggle switch, indicator LED and aviation connector."
-               width="1205" height="1600" loading="lazy">
-        </button>
-        <figcaption>The wiring harness laid out before it went into the enclosure: switching, indicators, inline resistors and the aviation connector for the output.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/supercapacitor-bank/03.jpg"
+                 alt="Close-up of the balancing resistors soldered across the 2.7 volt cells."
+                 width="1600" height="1205" loading="lazy">
+          </button>
+          <figcaption>Balancing resistors across the 2.7&nbsp;V cells, so no single capacitor drifts above its rating while charging in series.</figcaption>
+        </figure>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/supercapacitor-bank/05.jpg"
-               alt="Bench testing the charging circuit from a current-limited bench power supply, with a multimeter connected and the status LED lit."
-               width="1205" height="1600" loading="lazy">
-        </button>
-        <figcaption>Charge testing from a current-limited bench supply, multimeter across the pack.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/supercapacitor-bank/04.jpg"
+                 alt="The full wiring harness laid out flat before assembly: capacitor module, lever connectors, inline resistors, toggle switch, indicator LED and aviation connector."
+                 width="1205" height="1600" loading="lazy">
+          </button>
+          <figcaption>The wiring harness laid out before it went into the enclosure: switching, indicators, inline resistors and the aviation connector for the output.</figcaption>
+        </figure>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/supercapacitor-bank/06.jpg"
-               alt="The OLED display showing the voltage of each capacitor individually: C1, C2, C3 and the pack total."
-               width="1205" height="1600" loading="lazy">
-        </button>
-        <figcaption>Per-cell monitoring on the OLED. Every capacitor is reported separately alongside the pack total.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/supercapacitor-bank/05.jpg"
+                 alt="Bench testing the charging circuit from a current-limited bench power supply, with a multimeter connected and the status LED lit."
+                 width="1205" height="1600" loading="lazy">
+          </button>
+          <figcaption>Charge testing from a current-limited bench supply, multimeter across the pack.</figcaption>
+        </figure>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/supercapacitor-bank/07.jpg"
-               alt="Fitting the wiring loom into the black enclosure, with the front panel switches and OLED already mounted."
-               width="1205" height="1600" loading="lazy">
-        </button>
-        <figcaption>Fitting everything into the enclosure. Point-to-point wiring for a one-off build, tamed with cable ties and hot glue.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/supercapacitor-bank/06.jpg"
+                 alt="The OLED display showing the voltage of each capacitor individually: C1, C2, C3 and the pack total."
+                 width="1205" height="1600" loading="lazy">
+          </button>
+          <figcaption>Per-cell monitoring on the OLED. Every capacitor is reported separately alongside the pack total.</figcaption>
+        </figure>
 
-    </div>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/supercapacitor-bank/07.jpg"
+                 alt="Fitting the wiring loom into the black enclosure, with the front panel switches and OLED already mounted."
+                 width="1205" height="1600" loading="lazy">
+          </button>
+          <figcaption>Fitting everything into the enclosure. Point-to-point wiring for a one-off build, tamed with cable ties and hot glue.</figcaption>
+        </figure>
+
+      </div>
+    </details>
 
     <div class="measure">
 
@@ -179,8 +195,8 @@
       </div>
 
       <h2>What I learned</h2>
-      <p>The thing that made this project worth building was monitoring each cell instead of the pack. Cells do not charge evenly, and a single pack-level reading hides that completely. One cell can be sitting well above the others while the total looks perfectly normal.</p>
-      <p>It also changed how I work. Almost everything I have built since has some way of telling me what it is doing internally, because working blind on something that stores real energy is not a trade I want to make.</p>
+      <p>The thing that made this project worth building was monitoring each cell instead of the pack, and developing an informative UI. The capacitors in the bank did not charge evenly, and a single pack-level reading hides that completely. One cell can be sitting well above the others while the total looks perfectly normal, and the last thing I want is to overcharge a high-energy capacitor bank in my bedroom.</p>
+      <p>It also changed how I work. Almost everything I have built since has some way of telling me what it is doing internally, because working blind on something that stores real energy is honestly a bit scary. It is like driving with your eyes closed.</p>
 
     </div>
 

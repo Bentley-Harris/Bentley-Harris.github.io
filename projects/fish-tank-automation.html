@@ -72,69 +72,85 @@
         </div>
       </header>
 
-      <p class="lead">An automation system for my fish tank, currently in its final stages. It runs the tank light on a schedule and feeds the fish automatically, both driven by an Arduino with a menu on a small OLED display. I built it because the tank needed a routine that did not depend on me remembering.</p>
+      <p class="lead">An automation system for my beloved fish tank, currently in its final stages. It runs the tank light on a schedule and feeds the fish automatically, both driven by an Arduino Nano with a menu on a small OLED display. I built it because the tank needed a routine that keeps running when I go home during uni breaks.</p>
 
       <h2>Key details</h2>
       <ul class="spec-list">
-        <li>Reused the tank's existing light instead of replacing it: the Arduino switches it through MOSFETs on an automated on/off schedule.</li>
-        <li>Designed and 3D printed an automatic fish feeder, which has now run reliably for more than thirty days.</li>
-        <li>OLED display and a real-time clock module, with a scrollable menu and several operating modes.</li>
-        <li>Built and tested an earlier variant with RF remote control. It worked and I have footage of it, but it was cut from the final design.</li>
-        <li>Still on a breadboard. The next steps are moving it to a soldered perfboard build and designing a 3D printed enclosure for the electronics.</li>
+        <li>Reused the tank's existing light instead of replacing it: the Arduino switches it on and off on a schedule through MOSFETs that hijack the original light circuitry.</li>
+        <li>3D printed an automatic fish feeder. It is not my original design, but I had to modify it to stop it jamming, and it has now run reliably for more than thirty consecutive days. I chose a screw-based design over a trapdoor or push-based one on purpose, by thinking through the worst case: if a screw feeder fails, the food stays trapped inside, but a trapdoor stuck open could overfeed the fish and wipe out the tank.</li>
+        <li>0.96-inch OLED display and a real-time clock module, with a scrollable menu and several operating modes.</li>
+        <li>Built and tested an earlier variant with RF remote control. It worked and I have footage of it, but I cut it from the final design to focus on reliability and consistency rather than flashy features.</li>
+        <li>Still on a breadboard. When I get time over summer, I plan to finish designing a custom through-hole (THT) PCB and build the circuit into a compact, professional enclosure, so it is a finished package I can be proud of. I also plan to swap the Arduino Nano for an ESP32-C3, for its smaller package and onboard Wi-Fi, which opens up the option of connecting the system to my phone.</li>
       </ul>
     </div>
 
     <!-- ============================================================
          PHOTOS
          ============================================================ -->
-    <div class="gallery">
+    <details class="photos">
+      <summary class="photos-bar">
+        <span class="photos-strip" aria-hidden="true">
+          <img src="../assets/img/fish-tank-automation/mini-01.jpg" alt="" width="56" height="56" loading="lazy">
+          <img src="../assets/img/fish-tank-automation/mini-02.jpg" alt="" width="56" height="56" loading="lazy">
+          <img src="../assets/img/fish-tank-automation/mini-03.jpg" alt="" width="56" height="56" loading="lazy">
+          <img src="../assets/img/fish-tank-automation/mini-04.jpg" alt="" width="56" height="56" loading="lazy">
+        </span>
+        <span class="photos-label">
+          <span class="photos-title">Photos</span>
+          <span class="photos-count">5 photos</span>
+        </span>
+        <span class="photos-toggle" aria-hidden="true"></span>
+      </summary>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/fish-tank-automation/01.jpg"
-               alt="The control electronics prototyped on a breadboard: Arduino Uno, real-time clock module, OLED display, buttons and MOSFETs."
-               width="1205" height="1600">
-        </button>
-        <figcaption>The controller on the bench: Arduino, real-time clock, OLED, buttons and the switching transistors, still on a breadboard.</figcaption>
-      </figure>
+      <div class="gallery">
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/fish-tank-automation/02.jpg"
-               alt="The tank's light fixture opened up, with new wires soldered to the LED strip's white, blue and positive pads."
-               width="1205" height="1600" loading="lazy">
-        </button>
-        <figcaption>Inside the tank's own light. New wires soldered to the LED strip's white, blue and common pads so the Arduino can switch each channel.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/fish-tank-automation/01.jpg"
+                 alt="The control electronics prototyped on a breadboard: Arduino Uno, real-time clock module, OLED display, buttons and MOSFETs."
+                 width="1205" height="1600" loading="lazy">
+          </button>
+          <figcaption>The controller on the bench: Arduino, real-time clock, OLED, buttons and the switching transistors, still on a breadboard.</figcaption>
+        </figure>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/fish-tank-automation/03.jpg"
-               alt="The OLED settings menu showing the feed amount option set to 3."
-               width="1205" height="1600" loading="lazy">
-        </button>
-        <figcaption>The settings menu. Feed amount, speed and cycle are all set from the device itself.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/fish-tank-automation/02.jpg"
+                 alt="The tank's light fixture opened up, with new wires soldered to the LED strip's white, blue and positive pads."
+                 width="1205" height="1600" loading="lazy">
+          </button>
+          <figcaption>Inside the tank's own light. New wires soldered to the LED strip's white, blue and common pads so the Arduino can switch each channel.</figcaption>
+        </figure>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/fish-tank-automation/04.jpg"
-               alt="The OLED settings menu showing the feed cycle set to 48 hours."
-               width="1205" height="1600" loading="lazy">
-        </button>
-        <figcaption>Feed scheduling from the real-time clock, here set to a 48&nbsp;hour cycle.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/fish-tank-automation/03.jpg"
+                 alt="The OLED settings menu showing the feed amount option set to 3."
+                 width="1205" height="1600" loading="lazy">
+          </button>
+          <figcaption>The settings menu. Feed amount, speed and cycle are all set from the device itself.</figcaption>
+        </figure>
 
-      <figure>
-        <button class="shot-btn" type="button">
-          <img src="../assets/img/fish-tank-automation/05.jpg"
-               alt="The electronics housed in a plastic container beside the tank, OLED showing the menu, while the system runs day to day."
-               width="1205" height="1600" loading="lazy">
-        </button>
-        <figcaption>The current install beside the tank: running day to day in a temporary container while the perfboard build and printed enclosure are designed.</figcaption>
-      </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/fish-tank-automation/04.jpg"
+                 alt="The OLED settings menu showing the feed cycle set to 48 hours."
+                 width="1205" height="1600" loading="lazy">
+          </button>
+          <figcaption>Feed scheduling from the real-time clock, here set to a 48&nbsp;hour cycle.</figcaption>
+        </figure>
 
-    </div>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/fish-tank-automation/05.jpg"
+                 alt="The electronics housed in a plastic container beside the tank, OLED showing the menu, while the system runs day to day."
+                 width="1205" height="1600" loading="lazy">
+          </button>
+          <figcaption>The current install beside the tank: running day to day in a temporary container while the perfboard build and printed enclosure are designed.</figcaption>
+        </figure>
+
+      </div>
+    </details>
 
     <div class="measure">
 
@@ -161,8 +177,9 @@
       </div>
 
       <h2>What I learned</h2>
-      <p>Reliability matters far more than features on anything that runs unattended. The feeder has kept going for over a month, and that is mostly because the mechanism is simple. Earlier versions had more moving parts and found more ways to jam.</p>
-      <p>Removing the RF remote was the right call even though it worked. Building something and then cutting it is not wasted time; I would rather have tested the idea than wondered about it.</p>
+      <p>Reliability matters far more than features on anything that runs unattended. The feeder has kept going for over a month, and that is mostly because the mechanism is simple. Earlier versions had more moving parts that found more ways to jam, and more flaws in the code that could have led to continuous overfeeding.</p>
+      <p>A big part of the project was thinking through the ways things could go wrong. What if there is a power outage and the tank misses a feed? What if the system is packed away and misses a few feeds? What if a glitch or a failed component gives it bad information? Questions like these are why I added several safety measures, including a strict hard-coded limit of two feeds in 24 hours and one feed per hour, so there can never be accidental back-to-back feeds.</p>
+      <p>Removing the RF remote was the right call even though it worked. Building something and then cutting it is not wasted time. I would rather have tested the idea than wondered about it, and getting the RF link working and troubleshooting it taught me a lot that I plan to use on future builds.</p>
 
     </div>
 
