@@ -1175,3 +1175,99 @@ h1 {
 @media (max-width: 370px) {
   .photos-strip img:nth-child(n+3) { display: none; }
 }
+
+
+/* ==========================================================================
+   18. SELF-HOSTED VIDEO CLIPS
+
+   Short clips are hosted on the site itself as compressed MP4s (see
+   assets/video/). preload="none" plus a poster image means nothing
+   downloads until the visitor presses play. Longer videos stay on YouTube
+   and use the .video facade in section 9.
+
+     <figure class="clip">            landscape clip, full column width
+     <figure class="clip clip--portrait">   phone-style clip, narrower
+   ========================================================================== */
+
+.clip { margin: var(--s4) 0; }
+
+.clip video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #000;
+  border: 1px solid var(--hairline);
+}
+
+.clip--portrait video,
+.clip--portrait figcaption {
+  width: min(100%, 400px);
+}
+
+/* A second gallery on the same page (e.g. version 1 and version 2) sits a
+   little closer to the text above it. */
+.measure + .photos { margin-top: var(--s3); }
+
+
+/* ==========================================================================
+   19. HOME PAGE INTRODUCTION
+
+   Name and intro on the left, portrait on the right on wider screens. On a
+   phone the portrait sits between the one-line summary and the intro text.
+   ========================================================================== */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "head"
+    "photo"
+    "body";
+  column-gap: var(--s5);
+}
+.hero-head  { grid-area: head; }
+.hero-photo { grid-area: photo; margin: 0; }
+.hero-body  { grid-area: body; }
+
+.hero .portrait {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  margin-bottom: var(--s4);
+}
+
+@media (min-width: 820px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    grid-template-areas:
+      "head photo"
+      "body photo";
+    align-items: start;
+  }
+  .hero-head,
+  .hero-body { max-width: var(--width-text); }
+  .hero-photo { padding-top: var(--s2); }
+  .hero .portrait { max-width: 100%; margin-bottom: 0; }
+}
+
+/* Small photo floated beside a skills group on the home page. */
+.inline-photo {
+  max-width: 200px;
+  margin: 0 0 var(--s3);
+}
+.inline-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--hairline);
+}
+@media (min-width: 640px) {
+  .inline-photo {
+    float: right;
+    margin: 0 0 var(--s2) var(--s4);
+  }
+  /* Let the next skill groups wrap around the photo, then clear before the link. */
+  .skill-group + .section-link,
+  .measure > .section-link { clear: both; }
+}

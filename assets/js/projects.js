@@ -82,6 +82,18 @@ window.PROJECTS = [
   },
 
 {
+    id: "esp32-wifi-test-ap",
+    title: "ESP32 Wi-Fi Test Access Point",
+    year: "2026",
+    categories: ["Electronics & Embedded"],
+    blurb: "An ESP32-C3 running its own password-protected Wi-Fi network to test projects on.",
+    thumb: "assets/img/esp32-wifi-test-ap/thumb.jpg",
+    tags: ["ESP32", "Wi-Fi", "OLED", "I²C"],
+    url: "projects/esp32-wifi-test-ap.html",
+    featured: false
+  },
+
+{
     id: "rocket-stove",
     title: "Rocket Stove",
     year: "2024",
@@ -131,12 +143,12 @@ window.PROJECTS = [
 
 {
     id: "arduino-led-heart",
-    title: "Arduino LED Heart",
-    year: "2025",
+    title: "LED Heart",
+    year: "2025–2026",
     categories: ["Electronics & Embedded"],
-    blurb: "An Arduino-driven LED display piece, built as a gift.",
+    blurb: "A gift first built on an Arduino, now being rebuilt with two 555 timers and no code.",
     thumb: "assets/img/arduino-led-heart/thumb.jpg",
-    tags: ["Arduino", "LED control", "Soldering"],
+    tags: ["Arduino", "555 timer", "PWM", "Soldering"],
     url: "projects/arduino-led-heart.html",
     featured: false
   },

@@ -71,17 +71,18 @@
         </div>
       </header>
 
-      <p class="lead">A high-voltage experiment in energy storage and fast switching. A boost converter charges a bank of capacitors, and that stored energy is then released through a coil of magnet wire to produce a brief electromagnetic pulse. I built two versions and filmed both.</p>
+      <p class="lead">A high-voltage experiment in energy storage and fast switching. A boost converter charges a bank of capacitors, and that stored energy is then released through a coil of magnet wire to produce a brief electromagnetic pulse. I built and tested two versions.</p>
       <p>The write-up below is deliberately descriptive. It covers what the circuit did and what I took from building it, not how to reproduce it.</p>
 
       <h2>Key details</h2>
       <ul class="spec-list">
         <li>Two versions built and tested.</li>
-        <li>Energy stored in a high-voltage capacitor bank charged by a boost converter, then discharged through a wound coil.</li>
+        <li>Energy stored in a high-voltage capacitor bank charged by a boost converter, then discharged through a wound coil. A smaller coil with fewer turns has lower inductance, which gives faster, more violent switching and a sharper magnetic pulse.</li>
         <li>The real engineering problem is the switching rather than the storage: the pulse depends on getting the energy out quickly, not simply on how much is held.</li>
         <li>Effects were clearly visible: arcing at discharge, and disruption of a calculator placed near the coil.</li>
         <li>Documented on video across both versions.</li>
-        <li>No component values, wiring detail or build steps are published here, and I do not intend to publish them. It is a high-voltage circuit, and the interesting part for anyone reading this is the reasoning, not the recipe.</li>
+        <li>No component values, wiring detail or build steps are published here, and I do not intend to publish them. It is a high-voltage circuit, and the interesting part for anyone reading this is the reasoning.</li>
+        <li>Overall it was a quick, small project out of curiosity rather than anything serious, and I have since scrapped it for parts. I still thought it was worth sharing, because the way invisible fields can disrupt and damage the technology we use every day fascinated me, and I am glad I got to learn a little about how these systems actually work.</li>
       </ul>
     </div>
 
@@ -126,6 +127,7 @@
       <h2>What I learned</h2>
       <p>The lesson was about how fast stored energy can move, not about the pulse itself. Switching speed dominated everything: the same stored energy released slowly does almost nothing, and released quickly it is obvious across the room.</p>
       <p>It also set how I handle high voltage generally. Working on this taught me to rely on a fixed process of discharge, verify, then touch, rather than on remembering what state the circuit was in.</p>
+      <p>Also, cheap AliExpress boost modules are very scary, and not much fun to be shocked by or to mess around with.</p>
 
     </div>
 

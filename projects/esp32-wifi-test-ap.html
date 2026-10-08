@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ESP32 Wi-Fi Test Access Point — Bentley Harris</title>
+  <meta name="description" content="An ESP32-C3 running its own password-protected Wi-Fi network, with an OLED status display, for testing wireless projects.">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ESP32 Wi-Fi Test Access Point — Bentley Harris">
+  <meta property="og:description" content="An ESP32-C3 running its own password-protected Wi-Fi network, with an OLED status display, for testing wireless projects.">
+  <meta property="og:url" content="https://bentley-harris.github.io/projects/esp32-wifi-test-ap.html">
+  <meta property="og:image" content="https://bentley-harris.github.io/assets/img/esp32-wifi-test-ap/thumb.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!-- Applies your saved light/dark choice before the page draws. Leave this here. -->
+  <script>
+    try {
+      var t = localStorage.getItem("theme");
+      if (t) document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  </script>
+</head>
+
+<body data-project-id="esp32-wifi-test-ap">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================================================
+     HEADER: identical on every page. Links start with ../ because
+     this page sits inside the projects/ folder.
+     ============================================================ -->
+<header class="site-header">
+  <div class="wrap wrap--wide header-inner">
+    <a class="brand" href="../index.html">Bentley Harris</a>
+
+    <div class="nav-group">
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="../resume.html">Resume</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a class="icon-link" href="https://www.linkedin.com/in/bentley-harris-082259299/" aria-label="LinkedIn profile">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.02h4.56V24H.22zM8.34 8.02h4.37v2.18h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.47 3.04 5.47 6.99V24h-4.56v-7.28c0-1.74-.03-3.98-2.42-3.98-2.42 0-2.79 1.89-2.79 3.85V24H8.34z"/></svg>
+      </a>
+
+      <button class="theme-toggle" type="button" data-theme-toggle>Dark</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap wrap--wide">
+
+    <div class="measure">
+      <header class="project-header">
+        <h1>ESP32 Wi-Fi Test Access Point</h1>
+        <div class="project-meta">
+          <span class="meta">2026 · Electronics &amp; Embedded</span>
+          <ul class="tag-list">
+            <li class="tag">ESP32</li>
+            <li class="tag">Wi-Fi</li>
+            <li class="tag">OLED</li>
+            <li class="tag">I&sup2;C</li>
+          </ul>
+        </div>
+      </header>
+
+      <p class="lead">A small side project: an ESP32-C3 running as its own Wi-Fi access point, so I have a personal network in my room to test wireless projects on. A small OLED shows the network details, and one button flicks between screens.</p>
+
+      <h2>Key details</h2>
+      <ul class="spec-list">
+        <li>Runs on a Waveshare ESP32-C3 board, powered over USB-C.</li>
+        <li>The ESP32 broadcasts its own network rather than joining an existing one, so it does not depend on any other Wi-Fi being around.</li>
+        <li>0.96-inch two-colour OLED on I&sup2;C, with three screens: AP info (network name, password and channel), network (IP address and MAC address) and clients (how many devices are connected, and the uptime).</li>
+        <li>One push button cycles through the screens.</li>
+        <li>Built on a small breadboard. It is a quick test rig rather than a finished build.</li>
+      </ul>
+
+      <h2>How it is secured</h2>
+      <ul class="spec-list">
+        <li>The network is password-protected, so only devices with the password can join it.</li>
+        <li>It is a separate network from the shared university Wi-Fi, so anything I connect to it for testing stays off the shared network.</li>
+        <li>The password is blurred out in the photos and the video on this page.</li>
+      </ul>
+
+      <h2>Why I built it</h2>
+      <p>I wanted my own Wi-Fi network to test projects on. The ESP32-C3 is also the microcontroller I plan to move the fish tank controller onto, for its smaller size and onboard Wi-Fi, so this doubles as practice with it.</p>
+    </div>
+
+    <details class="photos">
+      <summary class="photos-bar">
+        <span class="photos-strip" aria-hidden="true">
+          <img src="../assets/img/esp32-wifi-test-ap/mini-01.jpg" alt="" width="56" height="56" loading="lazy">
+          <img src="../assets/img/esp32-wifi-test-ap/mini-02.jpg" alt="" width="56" height="56" loading="lazy">
+          <img src="../assets/img/esp32-wifi-test-ap/mini-03.jpg" alt="" width="56" height="56" loading="lazy">
+        </span>
+        <span class="photos-label">
+          <span class="photos-title">Photos</span>
+          <span class="photos-count">3 photos</span>
+        </span>
+        <span class="photos-toggle" aria-hidden="true"></span>
+      </summary>
+
+      <div class="gallery">
+
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/esp32-wifi-test-ap/01.jpg"
+                 alt="The test access point on a small breadboard: an ESP32-C3 board powered over USB-C, a two-colour OLED showing the AP info screen with the network name testap and the password blurred out, and a yellow push button."
+                 width="1205" height="1600" loading="lazy">
+          </button>
+          <figcaption>The AP info screen: network name, password (blurred here) and channel.</figcaption>
+        </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/esp32-wifi-test-ap/02.jpg"
+                 alt="The same breadboard with the OLED on the network screen, showing the board's IP address and MAC address."
+                 width="1205" height="1600" loading="lazy">
+          </button>
+          <figcaption>The network screen: the board's IP address and MAC address.</figcaption>
+        </figure>
+        <figure>
+          <button class="shot-btn" type="button">
+            <img src="../assets/img/esp32-wifi-test-ap/03.jpg"
+                 alt="The OLED on the clients screen, showing zero devices connected and the uptime in seconds."
+                 width="1205" height="1600" loading="lazy">
+          </button>
+          <figcaption>The clients screen: how many devices are connected, and how long it has been running.</figcaption>
+        </figure>
+
+      </div>
+    </details>
+
+    <div class="measure">
+
+      <h2>Video</h2>
+      <h3>Cycling through the screens</h3>
+      <figure class="clip">
+        <video controls preload="none" playsinline poster="../assets/img/esp32-wifi-test-ap/video-poster.jpg" width="1280" height="720" aria-label="The ESP32 test access point cycling through its screens">
+          <source src="../assets/video/esp32-wifi-test-ap.mp4" type="video/mp4">
+          Your browser cannot play this video. <a href="../assets/video/esp32-wifi-test-ap.mp4">Download it instead</a>.
+        </video>
+        <figcaption>Cycling through the screens, then the network showing up in my laptop's Wi-Fi list. The password is blurred.</figcaption>
+      </figure>
+
+    </div>
+
+    <nav class="pager" data-pager aria-label="More projects"></nav>
+
+  </div>
+</main>
+
+<!-- ============================================================
+     FOOTER: identical on every page.
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="wrap wrap--wide footer-inner">
+    <p>&copy; <span data-current-year>2026</span> Bentley Harris</p>
+    <ul class="link-row">
+      <li><a href="https://www.linkedin.com/in/bentley-harris-082259299/">LinkedIn</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="../assets/js/projects.js"></script>
+<script src="../assets/js/main.js"></script>
+
+</body>
+</html>
